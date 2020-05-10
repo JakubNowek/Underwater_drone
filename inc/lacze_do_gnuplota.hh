@@ -1,5 +1,5 @@
-#pragma once
-
+#ifndef LACZE_DO_GNUPLOTA_HH
+#define LACZE_DO_GNUPLOTA_HH
 #include <string>
 #include <list>
 #include <vector>
@@ -9,9 +9,10 @@
 #endif
 
 /*!
- * \file  gnuplot_link.hh
- *  
- *  Plik zawiera definicję klasy realizującej interfejs
+ * \file  
+ * \brief Zawiera definicję klasy PzG::LaczeDoGNUPlota
+ *
+ *  Plik zawiera definicję klasy PzG::LaczeDoGNUPlota realizującej interfejs
  *  komunikacyjny do programu gnuplot.
  */
 
@@ -33,19 +34,19 @@ namespace PzG {
    *  np. wybrany zostanie tryb 2D, to zakłada się, że w każdej linii
    *  pliku z danymi znajdują się wartości współrzędnych \e x, \e y.
    *  Wartości typu:
-   *   \li \p DM_2D - rysowanie w trybie 2D, co sprowadza się do 
+   *   \li \p TR_2D - rysowanie w trybie 2D, co sprowadza się do 
    *                  rysowania wykresów funkcji jednej zmiennej.
-   *   \li \p DM_3D - rysowanie w trybie 3D. Oznacza to możliwość
+   *   \li \p TR_3D - rysowanie w trybie 3D. Oznacza to możliwość
    *                  rysowania wykresów funkcji dwóch zmiennych.
    *                 
    */
-  enum DrawingMode { DM_2D,  DM_3D };
+  enum TrybRysowania { TR_2D,  TR_3D };
   /*!
    * \brief Sposób rysowania linii
    * 
    * Określa sposób rysowania linii.
    */
-  enum LineStyle { LS_CONTINUOUS, LS_SCATTERED }; 
+  enum RodzajRysowania { RR_Ciagly, RR_Punktowy }; 
 
   /*!
    * \brief Zestaw informacji dotyczący pliku i sposobu rysowania
@@ -53,44 +54,44 @@ namespace PzG {
    * Klasa modeluje zestaw informacji dotyczący pliku i sposobu
    * w jaki mają być wizualizowane zawarte w nim dane.
    */
-  class FileInfo {
+  class InfoPlikuDoRysowania {
     public:
      /*!
       * Inicjalizuje obiekt.
-      *  \param filename - nazwa pliku, z którego pobierane będą dane,
-      *  \param style - rodzaj rysowania linii,
-      *  \param width - szerokosc linii.
+      *  \param NazwaPliku - nazwa pliku, z którego pobierane będą dane,
+      *  \param RodzRys - rodzaj rysowania linii,
+      *  \param Szerokosc - szerokosc linii.
       */
-      FileInfo(std::string filename, LineStyle  style, int width)
+      InfoPlikuDoRysowania(const char* NazwaPliku, RodzajRysowania  RodzRys, int Szerokosc)
       {
-        filename_ = filename;
-        style_ = style;
-        width_ = width;
+        _NazwaPliku = NazwaPliku;
+        _RodzRys = RodzRys;
+        _Szerokosc = Szerokosc;
       }
      /*!
       * \brief Udostępia nazwę pliku do rysowania
       *
       * Udostępnia nazwę pliku z danymi do rysowania.
       */
-      const std::string GetFilename() const { return filename_; }
+      const std::string WezNazwePliku() const { return _NazwaPliku; }
      /*!
       * \brief Zmienia nazwę pliku do rysowania
       *
       * Zmienia nazwę pliku z danymi do rysowania.
       */
-      void SetFilename(const std::string& filename) { filename_ = filename; }
+      void ZmienNazwePliku(const std::string& NazwaPliku) { _NazwaPliku = NazwaPliku; }
      /*!
       * \brief Udostępnia sposób rysowanej linii
       *
       * Udostępnia informację o sposóbie rysowania linii.
       */
-      LineStyle GetStyle() const { return style_; }
+      RodzajRysowania WezRodzRys() const { return _RodzRys; }
      /*!
       * \brief  Udostępnia informację o szerokości linii.
       *
       *  Udostępnia informację o szerokości rysowanej linii.
       */
-      int GetWidth() const { return width_; }
+      int WezSzerokosc() const { return _Szerokosc; }
 
     private:
     /*!
@@ -98,20 +99,20 @@ namespace PzG {
      *
      * Nazwa pliku z danymi do rysowania.
      */
-      std::string  filename_;
+      std::string  _NazwaPliku;
     /*!
      * \brief Szerokość użytego piórka
      *
      * Określa szerokość piórka, jakie ma być użyte
      * do rysowania obiektów graficznych.
      */
-      int  width_;
+      int  _Szerokosc;
     /*!
      * \brief Sposób rysowania danej linii
      *
      * Przechowuje informacje o sposobie rysowania linii.
      */
-      LineStyle  style_;
+      RodzajRysowania  _RodzRys;
   };
 
 
@@ -123,7 +124,7 @@ namespace PzG {
  * Każdy taki zbiór może być następnie wizualizowany przez program 
  * gnuplot w postaci oddzielnych płaszczyzn z wycinaniem części zasłanianych.
  */
-class GnuplotLink {
+class LaczeDoGNUPlota {
  protected:
   /*!
    * \brief Lista nazw plików z danymi dla \e gnuplota.
@@ -131,20 +132,20 @@ class GnuplotLink {
    * Pole jest zarządcą listy nazw plików, z których są wczytywane
    * dane dotyczące rysowania obrysu brył przez program \e gnuplot.
    * Operacja ta wykonywana jest po wywołaniu polecenia.
-   * \link GnuplotLink::Draw Draw\endlink.
+   * \link LaczeDoGNUPlota::Rysuj Rysuj\endlink.
    */
-  static std::list<FileInfo>  files_information_;
+  static std::list<InfoPlikuDoRysowania>  _InfoPlikow;
 
    /*!
     *  Pole przechowuje deskryptor do wejścia standardowego uruchomionego
     *  programu gnuplot.
     */
-  int gnuplot_input_;
+  int           _Wejscie_GNUPlota;
    /*!
     *  Pole przechowuje deskryptor do weyjścia standardowego uruchomionego
     *  programu gnuplot.
     */
-  int gnuplot_output_;
+  int           _Wyjscie_GNUPlota;
    /*!
     *  \brief Decyduje czy mają być wyświetlane komunikaty o błędach,
     *         czy też nie.
@@ -154,7 +155,7 @@ class GnuplotLink {
     *   \li \p true - komunikaty będę wyświetlane,
     *   \li \p false -  komunikaty nie będę wyświetlane.
     */
-  bool display_error_messages_;
+  bool          _WyswietlajKomunikatyOBledach;
 
   /*!
    * \brief Określa aktualny tryb rysowania
@@ -163,65 +164,65 @@ class GnuplotLink {
    * wymuszony na programie \p gnuplot poprzez wysłanie do niego
    * odpowiednich poleceń. Wspomniane wymuszenie jest realizowane
    * poprzez wywołanie polecenia 
-   * \link GnuplotLink::Draw Draw()\endlink
+   * \link LaczeDoGNUPlota::Rysuj Rysuj()\endlink
    */
-  DrawingMode drawing_mode_;
+  TrybRysowania  _TrybRys;
    /*!
     *  \brief Dolny zakres wyświetlanej skali skali dla osi \e OX.
     *
     *  Określa dolny zakres wyświetlanej skali dla osi \e OX.
     */
-  float  x_min_;
+  float  _Xmin;
    /*!
     *  \brief Górny zakres wyświetlanej skali skali dla osi \e OX.
     *
     *  Określa górny zakres wyświetlanej skali dla osi \e OX.
     */
-  float  x_max_;
+  float  _Xmax;
    /*!
     *  \brief Dolny zakres wyświetlanej skali skali dla osi \e OY.
     *
     *  Określa dolny zakres wyświetlanej skali dla osi \e OY.
     */
-  float  y_min_;
+  float  _Ymin;
    /*!
     *  \brief Górny zakres wyświetlanej skali skali dla osi \e OY.
     *
     *  Określa górny zakres wyświetlanej skali dla osi \e OY.
     */
-  float  y_max_;
+  float  _Ymax;
    /*!
     *  \brief Dolny zakres wyświetlanej skali skali dla osi \e OZ.
     *
     *  Określa dolny zakres wyświetlanej skali dla osi \e OZ.
     */
-  float  z_min_;
+  float  _Zmin;
    /*!
     *  \brief Górny zakres wyświetlanej skali skali dla osi \e OZ.
     *
     *  Określa górny zakres wyświetlanej skali dla osi \e OZ.
     */
-  float  z_max_;
+  float  _Zmax;
    /*!
     *  Wartość tego pola definiuje skalowanie rysunku wzdłuż osi 
     *  \e OX (oś horyzontalna ekranu).
     */
-  float  x_scale_;
+  float  _Xskala;
    /*!
     *  Wartość tego pola definiuje skalowanie rysunku wzdłuż osi 
     *  \e OZ (oś wertykalna ekranu).
     */
-  float  z_scale_;
+  float  _Zskala;
    /*!
     *  Wartość tego pola definiuje rotację rysunku (zmiane punktu patrzenia)
     *  względem osi \e OX.
     */
-  float  x_rotation_;
+  float  _Xrotacja;
    /*!
     *  Wartość tego pola definiuje rotację rysunku (zmiane punktu patrzenia)
     *  względem osi \e OZ.
     */
-  float  z_rotation_;
+  float  _Zrotacja;
 
   /*!
    * \brief Czy oś OX ma być widoczna
@@ -229,7 +230,7 @@ class GnuplotLink {
    * Przechowuje informację decydującą o tym czy oś OX będzie
    * widoczna na rysunku (\p true), czy też nie (\p false).
    */
-  bool show_OX_axis_;
+  bool _PokazOs_OX;
 
   /*!
    * \brief Czy oś OY ma być widoczna
@@ -237,7 +238,7 @@ class GnuplotLink {
    * Przechowuje informację decydującą o tym czy oś OY będzie
    * widoczna na rysunku (\p true), czy też nie (\p false).
    */
-  bool show_OY_axis_;
+  bool _PokazOs_OY;
 
   /*!
    * \brief Czy oś OZ ma być widoczna
@@ -245,7 +246,7 @@ class GnuplotLink {
    * Przechowuje informację decydującą o tym czy oś OZ będzie
    * widoczna na rysunku (\p true), czy też nie (\p false).
    */
-  bool show_OZ_axis_;
+  bool _PokazOs_OZ;
 
 
 
@@ -255,16 +256,16 @@ class GnuplotLink {
    *
    * Metoda ta przewidziana jest jako element rozszerzenia pozwalającego
    * w klasach pochodnych powiększyć listę rysowanych elementów.
-   * \pre Parametr \e command powinien zawierać polecenie \e plot lub \e splot,
+   * \pre Parametr \e Polecenie powinien zawierać polecenie \e plot lub \e splot,
    *      do którego będzie możliwe dopisanie dalszego ciągu.
-   * \param command - polecenie rysowania, do którego mają być dopisane 
+   * \param Polecenie - polecenie rysowania, do którego mają być dopisane 
    *                    nazwy plików i odpowiednie parametry dla polecenia plot.
-   * \param separator - zawiera znak separatora między poszczególnymi
+   * \param Sep - zawiera znak separatora między poszczególnymi
    *              parametrami. Jeżeli parametry listy przeszkód
    *              są generowane jako pierwsze, to zmienna ta musi 
    *              być wskaźnikiem do wskaźnika na łańcuch: " ".
    */
-  virtual bool AddFilesToDrawCommand( std::string &command, char const **separator );
+  virtual bool DopiszPlikiDoPoleceniaRysowania( std::string &Polecenie, char const **Sep );
 
   /*!
    *  \brief Tworzy polecenie ustawiające zakres dla danej współrzędnej.
@@ -272,22 +273,22 @@ class GnuplotLink {
    *  Tworzy polecenie dla programu \e gnuplot ustawiające zakres 
    *  współrzędnych wybranej współrzędnej \e x, \e y lub \e z, 
    *  dla której ma być tworzony dany rysunek.
-   *  \param axis - zawiera znak określający współrzędną, dla której
+   *  \param Os - zawiera znak określający współrzędną, dla której
    *             ma zostać wygenerowane polecenie ustawienia zakresu.
    *  \return łańcuch znaków polecenia ustawiającego żądany zakres
    *          dla wybranej współrzędnej.
    */
-  std::string SaveRangeSettings(char axis) const;
+  std::string ZapiszUstawienieZakresu(char Os) const;
   /*!
    *  \brief Tworzy polecenie ustawiające punkt obserwacji.
    *
    *  Tworzy polecenie dla programu \e gnuplot ustawiajające punkt obserwacji
    *  poprzez zadanie rotacji i skali dla poszczególnych osi.
    */
-  std::string SaveScaleRotationSettings() const;
+  std::string ZapiszUstawienieRotacjiISkali() const;
    /*!
     * Przesyła na wejście programu \e gnuplot zadany ciąg znaków.
-    *  \param command - komunikat przeznaczony do przeslania.
+    *  \param Polecenie - komunikat przeznaczony do przeslania.
     *
     * \pre  Musi być zainicjowane połączenie z programem gnuplot.
     *
@@ -295,29 +296,29 @@ class GnuplotLink {
     * \retval false - w przypadku przeciwnym.
     *
     */
-  bool SendToGnuplot(const char *command);
+  bool PrzeslijDoGNUPlota(const char *Polecenie);
   /*!
    * \brief  Udostępnia informację czy mają być wyświetlane informacje o błędach.
    *
    *  Udostępnia wartość pola
-   *  \link GnuplotLink::display_error_messages_
-   *            display_error_messages_\endlink.
+   *  \link LaczeDoGNUPlota::_WyswietlajKomunikatyOBledach
+   *            _WyswietlajKomunikatyOBledach\endlink.
    *  Określa ono, czy mają być wyświetlane komunikaty o błędach na wyjście
    *  standardowe, czy też nie.
    */
-  bool AreErrorMessagesDisplayed() const { return display_error_messages_;}
+  bool CzyWyswietlacKomunikaty() const { return _WyswietlajKomunikatyOBledach;}
   /*!
    * \brief Uruchamia program \e gnuplot jako proces potomny.
    */
-  bool CreateChildProcess();
+  bool UtworzProcesPotomny();
   /*!
    * Wyświetla na wyjście "standard error" komunikat (przekazany jako
    * parametr), o ile pole 
-   *   \link GnuplotLink::display_error_messages_
-   *          display_error_messages_\endlink  ma wartość
+   *   \link LaczeDoGNUPlota::_WyswietlajKomunikatyOBledach
+   *          _WyswietlajKomunikatyOBledach\endlink  ma wartość
    * \p true. W przypadku przeciwnym komunikat nie jest wyświetlany.
    */
-  void ErrorMessage(const char *message) const;
+  void KomunikatBledu(const char *Komunikat) const;
 
   /*!
    * \brief Tworzy preambułę poprzedzającą polecenie rysowania
@@ -326,7 +327,7 @@ class GnuplotLink {
    *  oraz zakresy współrzędnych, jak też wszystkie inne parametry
    *  wynikające z przyjętego trybu rysowania.
    */
-  void CreateCommandPreamble(std::string &preamble) const;
+  void BudujPreambulePoleceniaRysowania(std::string &Preambula) const;
 
   /*!
    * \brief Tworzy preambułę poprzedzającą polecenie rysowania w trybie 2D
@@ -335,7 +336,7 @@ class GnuplotLink {
    *  oraz zakresy współrzędnych, jak też wszystkie inne parametry
    *  wynikające z trybu rysowania 2D.
    */
-  void Create2DPreamble(std::string &preamble) const;
+  void BudujPreambule_2D(std::string &Preambula) const;
 
 
   /*!
@@ -345,7 +346,7 @@ class GnuplotLink {
    *  oraz zakresy współrzędnych, jak też wszystkie inne parametry
    *  wynikające z trybu rysowania 3D.
    */
-  void Create3DPreamble(std::string &preamble) const;
+  void BudujPreambule_3D(std::string &Preambula) const;
 
 
  public:
@@ -354,10 +355,10 @@ class GnuplotLink {
    * \brief Umożliwia lub zabrania rysowania osi OX
    *
    * Umożliwia lub zabrania rysowania osi \e OX na rysunku wykresu.
-   * \param show - decyduje o tym czy oś \e OX będzie rysowana (\p true),
+   * \param Pokaz - decyduje o tym czy oś \e OX będzie rysowana (\p true),
    *                czy też nie (\p false).
    */
-  void show_OX_axis(bool show) { show_OX_axis_ = show; }
+  void PokazOs_OX(bool Pokaz) { _PokazOs_OX = Pokaz; }
 
   /*!
    * \brief Czy oś OX ma być rysowana
@@ -367,17 +368,17 @@ class GnuplotLink {
    * \retval true - gdy oś \e OX ma być rysowana,
    * \retval false - w przypadku przeciwnym.
    */
-  bool show_OX_axis() const { return show_OX_axis_; }
+  bool PokazOs_OX() const { return _PokazOs_OX; }
 
 
   /*!
    * \brief Umożliwia lub zabrania rysowania osi OY
    *
    * Umożliwia lub zabrania rysowania osi \e OY na rysunku wykresu.
-   * \param show - decyduje o tym czy oś \e OY będzie rysowana (\p true),
+   * \param Pokaz - decyduje o tym czy oś \e OY będzie rysowana (\p true),
    *                czy też nie (\p false).
    */
-  void show_OY_axis(bool show) { show_OY_axis_ = show; }
+  void PokazOs_OY(bool Pokaz) { _PokazOs_OY = Pokaz; }
 
   /*!
    * \brief Czy oś OY ma być rysowana
@@ -387,17 +388,17 @@ class GnuplotLink {
    * \retval true - gdy oś \e OY ma być rysowana,
    * \retval false - w przypadku przeciwnym.
    */
-  bool show_OY_axis() const { return show_OY_axis_; }
+  bool PokazOs_OY() const { return _PokazOs_OY; }
 
 
   /*!
    * \brief Umożliwia lub zabrania rysowania osi OZ
    *
    * Umożliwia lub zabrania rysowania osi \e OZ na rysunku wykresu.
-   * \param show - decyduje o tym czy oś \e OZ będzie rysowana (\p true),
+   * \param Pokaz - decyduje o tym czy oś \e OZ będzie rysowana (\p true),
    *                czy też nie (\p false).
    */
-  void show_OZ_axis(bool show) { show_OZ_axis_ = show; }
+  void PokazOs_OZ(bool Pokaz) { _PokazOs_OZ = Pokaz; }
 
   /*!
    * \brief Czy oś OZ ma być rysowana
@@ -407,49 +408,49 @@ class GnuplotLink {
    * \retval true - gdy oś \e OZ ma być rysowana,
    * \retval false - w przypadku przeciwnym.
    */
-  bool show_OZ_axis() const { return show_OZ_axis_; }
+  bool PokazOs_OZ() const { return _PokazOs_OZ; }
 
 
   /*!
    *  Udostępnia dolną wartość zakresu skali wzdłuż osi \e OX.
    */
-  float Xmin() const { return x_min_; }
+  float Xmin() const { return _Xmin; }
   /*!
    *  Udostępnia górną wartość zakresu skali wzdłuż osi \e OX.
    */
-  float Xmax() const { return x_max_; }
+  float Xmax() const { return _Xmax; }
   /*!
    *  Udostępnia dolną wartość zakresu skali wzdłuż osi \e OY.
    */
-  float Ymin() const { return y_min_; }
+  float Ymin() const { return _Ymin; }
   /*!
    *  Udostępnia górną wartość zakresu skali wzdłuż osi \e OY.
    */
-  float Ymax() const { return y_max_; }
+  float Ymax() const { return _Ymax; }
   /*!
    *  Udostępnia dolną wartość zakresu skali wzdłuż osi \e OZ.
    */
-  float Zmin() const { return z_min_; }
+  float Zmin() const { return _Zmin; }
   /*!
    *  Udostępnia górną wartość zakresu skali wzdłuż osi \e OZ.
    */
-  float Zmax() const { return z_max_; }
+  float Zmax() const { return _Zmax; }
 
   /*!
    * \brief Zmienia tryb rysowania
    *
    * Zmienia tryb rysowania jaki zostanie wymuszony na programie
    * \p gnuplot.
-   * \param mode - wartość parametru określa nowy tryb rysowania.
+   * \param Tryb - wartość parametru określa nowy tryb rysowania.
    */
-  void SetDrawingMode(DrawingMode  mode) { drawing_mode_ = mode; }
+  void ZmienTrybRys(TrybRysowania  Tryb) { _TrybRys = Tryb; }
 
   /*!
    * \brief Udostępnia aktualny tryb rysowania
    *
    * Udostępnia informację o aktualnym trybie rysowania.
    */
-  DrawingMode GetDrawingMode() const { return drawing_mode_; }
+  TrybRysowania WezTrybRys() const { return _TrybRys; }
 
   /*!
    *  \brief Ustawia zakres osi \e OX
@@ -459,7 +460,7 @@ class GnuplotLink {
    * \param Xo - dolna granica obszaru rysowania dla osi \e OX.
    * \param Xn - górna granica obszaru rysowania dla osi \e OX.
    */
-  void SetRangeX(float Xo, float Xn) { x_min_ = Xo;  x_max_ = Xn; }
+  void UstawZakresX(float Xo, float Xn) { _Xmin = Xo;  _Xmax = Xn; }
   /*!
    *  \brief Ustawia zakres osi \e OY
    *
@@ -468,7 +469,7 @@ class GnuplotLink {
    * \param Yo - dolna granica obszaru rysowania dla osi \e OY.
    * \param Yn - górna granica obszaru rysowania dla osi \e OY.
    */
-  void SetRangeY(float Yo, float Yn) { y_min_ = Yo;  y_max_ = Yn; }
+  void UstawZakresY(float Yo, float Yn) { _Ymin = Yo;  _Ymax = Yn; }
   /*!
    *  \brief Ustawia zakres osi \e OZ. 
    *
@@ -477,7 +478,7 @@ class GnuplotLink {
    * \param Zo - dolna granica obszaru rysowania dla osi \e OZ.
    * \param Zn - górna granica obszaru rysowania dla osi \e OZ.
    */
-  void SetRangeZ(float Zo, float Zn) { z_min_ = Zo;  z_max_ = Zn; }
+  void UstawZakresZ(float Zo, float Zn) { _Zmin = Zo;  _Zmax = Zn; }
 
 
   /*!
@@ -485,80 +486,80 @@ class GnuplotLink {
    *
    *  Udostępnia skalę dla osi \e OX dla tworzonego rysunku.
    */
-  float ScaleX() const { return x_scale_; }
+  float SkalaX() const { return _Xskala; }
   /*!
    *  \brief Udostępnia skalę dla osi \e OZ.
    *
    *  Udostępnia skalę dla osi \e OZ dla tworzonego rysunku.
    */
-  float ScaleZ() const { return z_scale_; }
+  float SkalaZ() const { return _Zskala; }
   /*!
    *  \brief Zadaje skalę wzdłuż osi \e OZ.
    *
    *  Zadaje skalę wzdłuż osi \e OX dla tworzonego rysunku.
-   *  \param x_scale - skala wzdłuż osi \e OX.
+   *  \param skala_x - skala wzdłuż osi \e OX.
    */
-  void SetScaleX( float x_scale ) { x_scale_ = x_scale; }
+  void UstawSkaleX( float skala_x ) { _Xskala = skala_x; }
   /*!
    *  \brief Zadaje skalę wzdłuż osi \e OZ.
    *
    *  Zadaje skalę wzdłuż osi \e OZ dla tworzonego rysunku.
-   *  \param z_scale - skala wzdłuż osi \e OZ.
+   *  \param skala_z - skala wzdłuż osi \e OZ.
    */
-  void SetScaleZ( float z_scale ) { z_scale_ = z_scale; }
+  void UstawSkaleZ( float skala_z ) { _Zskala = skala_z; }
   /*!
    *  \brief Zadaje skalę wzdłuż osi \e OX i \e OZ.
    *
    *  Zadaje skalę wzdłuż osi \e OX i \e OZ dla tworzonego rysunku.
-   *  \param x_scale - skala wzdłuż osi \e OX.
-   *  \param z_scale - skala wzdłuż osi \e OZ.
+   *  \param skala_x - skala wzdłuż osi \e OX.
+   *  \param skala_z - skala wzdłuż osi \e OZ.
    */
-  void SetScaleXZ( float x_scale, float z_scale ) 
-          { SetScaleX(x_scale);  SetScaleZ(z_scale); }
+  void UstawSkaleXZ( float skala_x, float skala_z ) 
+          { UstawSkaleX(skala_x);  UstawSkaleZ(skala_z); }
 
   /*!
    *  Udostępnia wartość kąta rotacji renderowanego rysunku wokół
    *  osi \e OX. Zwracana wartość wyrażona jest w stopiniach.
    */
-  float RotationX() const { return x_rotation_; }
+  float RotacjaX() const { return _Xrotacja; }
   /*!
    *  Udostępnia wartość kąta rotacji renderowanego rysunku wokół
    *  osi \e OZ. Zwracana wartość wyrażona jest w stopiniach.
    */
-  float RotationZ() const { return z_rotation_; }
+  float RotacjaZ() const { return _Zrotacja; }
   /*!
    * \brief Ustawia rotację wokół osi \e OX.
    *
    * Zadaje kąt rotacji wokół osi \e OX. Umożliwia to zmianę
    * punktu obserwacji renderowanego rysunku.
-   * \param  x_angle - wartość kąta rotacji. Jego wartość podawana 
+   * \param  kat_x - wartość kąta rotacji. Jego wartość podawana 
    *                 jest w stopniach.
    */
-  void SetRotationX( float x_angle ) { x_rotation_ = x_angle; }
+  void UstawRotacjeX( float kat_x ) { _Xrotacja = kat_x; }
   /*!
    * \brief Ustawia rotację wokół osi \e OZ.
    *
    * Zadaje kąt rotacji wokół osi \e OZ. Umożliwia to zmianę
    * punktu obserwacji renderowanego rysunku.
-   * \param  z_angle - wartość kąta rotacji. Jego wartość podawana 
+   * \param  kat_z - wartość kąta rotacji. Jego wartość podawana 
    *                 jest w stopniach.
    */
-  void SetRotationZ( float z_angle ) { z_rotation_ = z_angle; }
+  void UstawRotacjeZ( float kat_z ) { _Zrotacja = kat_z; }
   /*!
    * \brief Ustawia rotację wokół osi \e OX i \e OZ.
    *
    * Zadaje jednocześnie kąt rotacji wokół osi \e OX i \e OZ. 
    * Umożliwia to zmianę
    * punktu obserwacji renderowanego rysunku.
-   * \param  x_angle - wartość kąta rotacji względem osi \e OX. 
+   * \param  kat_x - wartość kąta rotacji względem osi \e OX. 
    *                 Jego wartość podawana 
    *                 jest w stopniach.
-   * \param  z_angle - wartość kąta rotacji względem osi \e OZ. 
+   * \param  kat_z - wartość kąta rotacji względem osi \e OZ. 
    *                 Jego wartość podawana 
    *                 jest w stopniach.
    */
-  void SetRotationXZ( float x_angle, float z_angle ) 
-    { SetRotationX(x_angle);  SetRotationZ(z_angle); }  
+  void UstawRotacjeXZ( float kat_x, float kat_z ) 
+    { UstawRotacjeX(kat_x);  UstawRotacjeZ(kat_z); }  
 
   /*!
    *  \brief Zezwala lub zabrania wyświetlania komunikatów.
@@ -570,39 +571,39 @@ class GnuplotLink {
    *  Domyślnie przymuje się, że programista nie chce dodatkwego wyświetlania
    *  komunikatów.
    */
-  void ShowErrorMessages( bool mode = true );
+  void WyswietlajKomunikatyBledow( bool Tryb = true );
    /*!
     * \brief  Dodaje nazwę pliku.
     *
     * Powoduje dodanie do listy plików zawierajacych dane dla \e gnuplota,
     * nowej nazwy pliku.
     *
-    * \param[in]  filename  - nazwa pliku z danymi dla gnuplota.
-    * \param[in]  style - tryb rysowania danego zbioru punktow.
+    * \param[in]  NazwaPliku  - nazwa pliku z danymi dla gnuplota.
+    * \param[in]  RodzRys - tryb rysowania danego zbioru punktow.
     *                      Może być ciągły lub jako zbiór osobnych punktów.
-    * \param[in]  width - szerokość rysowanego obiektu. W przypadku
+    * \param[in]  Szerokosc - szerokość rysowanego obiektu. W przypadku
     *                     punktów parametr ten jest połową szerokości
     *                     kwadratu reprezentującego dany punkt.
     *
     * \retval true - jeżeli istnieje plik o nazwie udostępnionej poprzez
     *            parametr
-    *            \e filename oraz jest zezwolenie na jego czytanie.
+    *            \e NazwaPliku oraz jest zezwolenie na jego czytanie.
     *            Nazwa pliku zostaje dodana do listy plików z danymi 
     *            dla \e gnuplota.
     * \retval false - Jeżeli nie istnieje plik o nazwie przekazanej poprzez
-    *            parametr \e filename. 
+    *            parametr \e NazwaPliku. 
     *            Nazwa pliku zostaje dodana do listy plików z danymi 
     *            dla \e gnuplota.
     */
-   bool AddFilename( const char       * filename, 
-                         LineStyle    style = LS_CONTINUOUS, 
-                         int                width = 1
+   bool DodajNazwePliku( const char       * NazwaPliku, 
+                         RodzajRysowania    RodzRys = RR_Ciagly, 
+                         int                Szerokosc = 1
                        );
 
     /*!
      * \brief Tworzy listę parametrów umożliwiających rysowanie brył z plików.
      */
-    bool AddDrawingFromFiles( std::string &command, char const **separator );
+    bool DopiszRysowanieZPlikow( std::string &Polecenie, char const **Sep );
 
    /*!
     * \brief Informuje, czy połączenie z \e gnuplot'em jest zainicjalizowane.
@@ -611,7 +612,7 @@ class GnuplotLink {
     * \retval true - jeśli tak,
     * \retval false - w przypadku przeciwnym.
     */ 
-    bool IsConnectionInitialized() const;
+    bool CzyPolaczenieJestZainicjowane() const;
 
   /*!
    *  Jeżeli lista plików nie jest pusta, to generuje sekwencje poleceń
@@ -620,7 +621,7 @@ class GnuplotLink {
    *
    *  \pre  Lista plików nie powinna być pusta. Nazwy plików na niej
    *        można umieścić za pomoca metody 
-   *        \link GnuplotLink::AddName AddName\endlink.
+   *        \link LaczeDoGNUPlota::DodajNazwe DodajNazwe\endlink.
    *        Metoda nie wymaga wcześniejszego zainicjowania połączenia
    *        z \e gnuplotem.
    *  \retval true   - gdy zostają poprawnie wysłane polecenia dla gnuplota.
@@ -629,18 +630,18 @@ class GnuplotLink {
    *  \retval false   - gdy połączenie z gnuplotem nie może zostać poprawnie
    *                 zainicjalizowane lub gdy lista plików jest pusta.
    */
-  bool Draw();
+  bool Rysuj();
   /*!
    *  Działa analogicznie jak metoda 
-   *  \link GnuplotLink::Draw Draw\endlink, z tą różnicą, że 
+   *  \link LaczeDoGNUPlota::Rysuj Rysuj\endlink, z tą różnicą, że 
    *  rysunek robota
    *  składowany jest w pliku o nazwie przekazanej przez parametr 
-   *  \e filename.
+   *  \e NazwaPliku.
    *  Rysunek jest zapisywany w formacie \e PNG.
    *
    *  \post Lista plików nie powinna być pusta ponadto powinno być
    *        możliwe otwarcie do zapisu pliku o nazwie przekazanej przez
-   *        parametr \e filename, do której dołączane jest rozszerzenie
+   *        parametr \e NazwaPliku, do której dołączane jest rozszerzenie
    *        .ps .
    *        Metoda nie wymaga wcześniejszego zainicjowania połączenia
    *        z programem \e gnuplot. 
@@ -653,7 +654,7 @@ class GnuplotLink {
    *                 zainicjalizowane lub gdy lista plików jest pusta lub
    *                 też gdy nie można otworzyć pliku do zapisu.
    */
-  bool DrawToFile(const char *filename);
+  bool RysujDoPliku(const char *NazwaPliku);
   /*!
    *  \brief  Inicjalizuje połączenie z programem \e gnuplot.
    *
@@ -668,26 +669,26 @@ class GnuplotLink {
    *  \retval false - gdy proces inicjalizacji połączenia zakończył się
    *               niepowodzeniem.
    */
-  bool Init();
+  bool Inicjalizuj();
   /*!
    *  \brief Usuwa ostatnią nazwę pliku.
    * 
    *  Usuwa ostatnią nazwę z listy nazw plików.
    */
-  void DeleteLastName();
+  void UsunOstatniaNazwe();
   /*!
    *  \brief Kasuje zawartość listy nazw plików.
    * 
    *  Calkowicie kasuje zawartość listy nazw plików.
    */
-  void DeleteAllNames();
+  void UsunWszystkieNazwyPlikow();
 
-  GnuplotLink();
-  virtual ~GnuplotLink();
+  LaczeDoGNUPlota();
+  virtual ~LaczeDoGNUPlota();
 };
 
   inline
-  bool GnuplotLink::AddFilesToDrawCommand( std::string &,
+  bool LaczeDoGNUPlota::DopiszPlikiDoPoleceniaRysowania( std::string &,
                                                          char const  **
                                                        )
   { return true; }
@@ -696,3 +697,4 @@ class GnuplotLink {
 
 }
 
+#endif

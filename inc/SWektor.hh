@@ -1,6 +1,6 @@
 #ifndef SWEKTOR_HH
 #define SWEKTOR_HH
-
+#define ROZMIAR 3
 
 #include <iostream>
 #include <cstdlib>
