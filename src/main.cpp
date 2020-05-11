@@ -1,52 +1,55 @@
 #include <iostream>
 #include <iomanip>
-#include "lacze_do_gnuplota.hh"
-#include <vector>
-#include "prostopadloscian.hh"
-//#include "SWektor.hh"
+#include <fstream>
+#include <string>
+
+#include "gnuplot_link.hh"
+#include "cuboid.hh"
 
 using namespace std;
-using Wektor3D = SWektor<double,3>;
+const string kDroneFile("solid/drone.dat");
 
 int main()
 {
-  /* PzG::LaczeDoGNUPlota  Lacze;
-  char c;
+    /* Cuboid cuboid;        // To tylko przykladowe definicje zmiennej
+    PzG::GnuplotLink link; // Ta zmienna jest potrzebna do wizualizacji
 
-  Lacze.DodajNazwePliku("bryly/prostopadloscian1.dat");
-  Lacze.ZmienTrybRys(PzG::TR_3D);
-  Lacze.Inicjalizuj();  // Tutaj startuje gnuplot.
+    link.Init();
+    link.AddFilename(kDroneFile.c_str(), PzG::LS_CONTINUOUS, 1);
+    link.SetDrawingMode(PzG::DM_3D);
 
-  Lacze.UstawZakresX(-40, 100);
-  Lacze.UstawZakresY(-90, 90);
-  Lacze.UstawZakresZ(-20, 90);
+    cuboid.draw(kDroneFile);
 
 
-Lacze.UstawRotacjeXZ(40,60); // Tutaj ustawiany jest widok
+    link.Draw(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
+    cout << "Naciśnij ENTER, aby kontynuowac" << endl;
+    cin.ignore(100000, '\n'); */
 
-  Lacze.Rysuj();        // Teraz powinno pojawic sie okienko gnuplota
-                        // z rysunkiem, o ile istnieje plik "prostopadloscian1.dat"
-  cout << "Nacisnij ENTER, aby zobaczyc prostopadloscian nr 2 ... " << flush;
-  cin >> noskipws >> c;
 
-  Lacze.UsunWszystkieNazwyPlikow();
-  Lacze.DodajNazwePliku("bryly/prostopadloscian2.dat");
-  Lacze.Rysuj();        // Teraz powinno pojawic sie okienko gnuplota
-                        // z rysunkiem, o ile istnieje plik "prostopadloscian2.dat"
+   /*  Vector3D translation;
+    translation[0] = 50;
+    translation[1] = 50;
+    translation[2] = 50; */
 
-  cout << "Nacisnij ENTER, aby zobaczyc prostopadloscian nr 3 ... " << flush;
-  cin >> noskipws >> c;
+    //cuboid.translate(translation);
+    //cuboid.draw(kDroneFile);
 
-  Lacze.UsunWszystkieNazwyPlikow();
-  Lacze.DodajNazwePliku("bryly/prostopadloscian3.dat");
-  Lacze.Rysuj();        // Teraz powinno pojawic sie okienko gnuplota
-                        // z rysunkiem, o ile istnieje plik "prostopadloscian3.dat"
 
-  cout << "Nacisnij ENTER, aby zakonczyc ... " << flush;
-  cin >> noskipws >> c; */
+    /* link.Draw(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
+    cout << "Naciśnij ENTER, aby kontynuowac" << endl;
+    cin.ignore(100000, '\n'); */ 
+RotationMatrix Radek;
+Vector3D Andrzej;
+  for (int i = 0; i<3;++i)
+  {
+    for (int j = 0; j<3;++j)         // tutaj szybkie 2 macierze do sprawdzania mnozenia
+    {
+        Radek[i][j] = i+4*j;
+        Andrzej[i] = 2*i-j;
+    }
+  }
+  cout<<"radziu "<<endl<<Radek <<endl<<"Andrzejek"<<endl<< Andrzej<<endl;
+  cout << "iloczyn" << endl<< Radek*Andrzej<<endl;
 
-  Prostopadloscian pox;
-
-  std::cout << pox << std::endl;
-
+    return 0;
 }

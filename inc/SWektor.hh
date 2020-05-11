@@ -1,11 +1,12 @@
 #ifndef SWEKTOR_HH
 #define SWEKTOR_HH
-#define ROZMIAR 3
+
 
 #include <iostream>
+//#include "LZespolona.hh"
 #include <cstdlib>
 #include <cmath>
-
+#include "rozmiar.hh"
 
 template <typename STyp, int SWymiar>
 class SWektor {
