@@ -7,6 +7,8 @@
 #IncludeRegexTransform: 
 
 /home/jakub/zad-5/src/RotationMatrix.cpp
+RotationMatrix.hh
+/home/jakub/zad-5/src/RotationMatrix.hh
 
 /home/jakub/zad-5/src/cuboid.cpp
 cuboid.hh
@@ -89,6 +91,8 @@ SWektor.hh
 inc/SWektor.hh
 SMacierz.hh
 inc/SMacierz.hh
+RotationMatrix.hh
+inc/RotationMatrix.hh
 
 inc/gnuplot_link.hh
 string

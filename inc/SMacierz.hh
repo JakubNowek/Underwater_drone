@@ -12,7 +12,8 @@
 template <typename STyp, int SWymiar>
 class SMacierz {
 
-SWektor<STyp,SWymiar> _Kolumna[ROZMIAR];
+	protected:
+	SWektor<STyp,SWymiar> _Kolumna[ROZMIAR];
 /**********naglowki metod***********/
   public:
   SMacierz ();/* Konstruktor bezparametryczny */
@@ -50,7 +51,7 @@ SWektor<STyp,SWymiar> _Kolumna[ROZMIAR];
   SMacierz<STyp,SWymiar> operator* (const SMacierz<STyp,SWymiar>& B) const;
 
 	/* mnozenie macierz*wektor */
-	SWektor<STyp,SWymiar> operator* (const SWektor<STyp,SWymiar>& B) ;
+	SWektor<STyp,SWymiar> operator* (const SWektor<STyp,SWymiar>& B) const;
 
 
    /* przeciazenie operatora =  dla macierzy
@@ -175,7 +176,7 @@ SMacierz<STyp,SWymiar> SMacierz<STyp,SWymiar>::operator*( const SMacierz<STyp,SW
 }
 /* macierz * wektor */
 template <typename STyp, int SWymiar>
-SWektor<STyp,SWymiar> SMacierz<STyp,SWymiar>::operator* (const SWektor<STyp,SWymiar>& B) 
+SWektor<STyp,SWymiar> SMacierz<STyp,SWymiar>::operator* (const SWektor<STyp,SWymiar>& B) const
 {
 	SMacierz<STyp,SWymiar> Pom;
     Pom = (*this);

@@ -13,19 +13,20 @@ int main()
 {
     Cuboid cuboid;        // To tylko przykladowe definicje zmiennej
     PzG::GnuplotLink link; // Ta zmienna jest potrzebna do wizualizacji
-    constexpr double angle = M_PI/4; // tu na szybko jakis kat
+    constexpr double ANG = M_PI/4; // tu na szybko jakis kat 
     link.Init();
     link.AddFilename(kDroneFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.SetDrawingMode(PzG::DM_3D);
 
-    cuboid.draw(kDroneFile,0);
+    cuboid.draw(kDroneFile);
 
 
     link.Draw(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
     cout << "Naciśnij ENTER, aby kontynuowac" << endl;
     cin.ignore(100000, '\n'); 
 
-    cuboid.draw(kDroneFile,angle); //najpierw rysujemy obrocony na osi z
+    cuboid.GetAngle() = ANG;
+    cuboid.draw(kDroneFile); //najpierw rysujemy obrocony na osi z
 
     Vector3D translation;
     translation[0] = 50;
