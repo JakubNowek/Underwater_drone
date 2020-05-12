@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include "RotationMatrix.hh"
-
+#include <cmath>
 using namespace std;
 
 Cuboid::Cuboid(): angle{0}
@@ -24,7 +24,7 @@ Cuboid::Cuboid(): angle{0}
     inputFile.close();
 }
 
-void Cuboid::draw(std::string filename) const
+void Cuboid::draw(std::string filename,double angle) const
 {
     ofstream outputFile;
     outputFile.open(filename);
@@ -33,8 +33,19 @@ void Cuboid::draw(std::string filename) const
         cerr << "Unable to open drone file!" << endl;
         return;
     }
-    RotationMatrix RotAng;
-    int x = angle;
+  /*   RotationMatrix RotAng; */
+  //szybka macierz neandertalska 
+  SMacierz<double,3> RotAng;  // rozwiazanie dla jaskiniowcow bo czas goni 
+  RotAng[0][0] = cos(angle);
+  RotAng[0][1] = -sin(angle);
+  RotAng[0][2] = 0;
+  RotAng[1][0] = sin(angle);
+  RotAng[1][1] = cos(angle);
+  RotAng[1][2] = 0;
+  RotAng[2][0] = 0;
+  RotAng[2][1] = 0;
+  RotAng[2][2] = 1;
+   
     for(unsigned i = 0; i < points.size(); ++i)
     {
         outputFile << RotAng * points[i] + translation << endl;

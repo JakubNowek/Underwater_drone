@@ -8,7 +8,8 @@
 const std::string kModelCuboid("solid/model.dat");
 
 using Vector3D = SWektor<double,3>;
-using RotationMatrix = SMacierz<double,3>;
+
+
 
 class Cuboid{
     std::vector<Vector3D> points;
@@ -17,7 +18,7 @@ class Cuboid{
 
 public:
     Cuboid();
-    void draw(std::string filename) const;
+    void draw(std::string filename, double angle) const;
     void translate(const Vector3D& change)
     {
         translation = translation + change;

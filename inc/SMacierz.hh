@@ -178,7 +178,7 @@ template <typename STyp, int SWymiar>
 SWektor<STyp,SWymiar> SMacierz<STyp,SWymiar>::operator* (const SWektor<STyp,SWymiar>& B) 
 {
 	SMacierz<STyp,SWymiar> Pom;
-    Pom = (*this).Transpozycja();
+    Pom = (*this);
     SWektor<STyp,SWymiar> WynikMnoz;
 
     for(int i = 0; i < ROZMIAR; ++i)

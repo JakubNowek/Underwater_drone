@@ -4,22 +4,17 @@
 #include "SMacierz.hh"
 
 
-class RotationMatrix : public SMacierz<double,3>
+/* class RotationMatrix : public SMacierz<double,3>
 {
     public:
     
     RotationMatrix(double angle)
+    :SMacierz()
     {
-        SWektor<double,3> W[ROZMIAR];
-        for(int i = 0; i < ROZMIAR; ++i)
-        {
-            for (int j = 0; j < ROZMIAR; ++j)
-            W[i][j] = 0;
-            _Kolumna[i] = W[i];
-        }
+        
     }
 };
-
+ */
 
 
 
