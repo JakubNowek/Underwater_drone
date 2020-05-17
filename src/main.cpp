@@ -5,8 +5,9 @@
 #include <cmath>
 #include "gnuplot_link.hh"
 #include "cuboid.hh"
+#include "Surface.hh"
 
- #include <chrono> //te dwie biblioteki sa od opznienia w animacji
+#include <chrono> //te dwie biblioteki sa od opznienia w animacji
 #include <thread> 
 
 
@@ -14,10 +15,10 @@
 
 using namespace std;
 const string kDroneFile("solid/drone.dat");
-
+const string kModelFile("solid/model.dat");
 int main()
 {
-    Cuboid cuboid;        // To tylko przykladowe definicje zmiennej
+    Cuboid cuboid(kModelFile);        
     PzG::GnuplotLink link; // Ta zmienna jest potrzebna do wizualizacji
     link.SetRangeX(-40, 300);
     link.SetRangeY(-90, 200);
@@ -25,26 +26,34 @@ int main()
     link.SetRotationXZ(75,15);
     constexpr double ANG = M_PI/4; // tu na szybko jakis kat 
     int FramesInTranslation = 120;
+    int FramesInRotation = 120;
     link.Init();
     link.AddFilename(kDroneFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.SetDrawingMode(PzG::DM_3D);
 
- /*    cuboid.draw(kDroneFile);
-
-
+    cuboid.draw(kDroneFile);
     link.Draw(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
-    cout << "Naciśnij ENTER, aby kontynuowac" << endl;
-    cin.ignore(100000, '\n');  
+    /* cout << "Naciśnij ENTER, aby kontynuowac" << endl;
+    cin.ignore(100000, '\n');   */
+    //cuboid.GetAngle() = ANG;
 
-    cuboid.GetAngle() = ANG;
-    cuboid.draw(kDroneFile); //najpierw rysujemy obrocony na osi z */
+//obracanie drona w animacji
+    for (int i = 0;i<FramesInRotation; i++)
+    {
+      auto temp = ANG/FramesInRotation;
+      cuboid.GetAngle()=  i*temp;
+      cuboid.draw(kDroneFile); //najpierw rysujemy obrocony na osi z */
+      link.Draw();
+      this_thread::sleep_for(chrono::milliseconds(15));
+      
+    }
 
-    cuboid.GetAngle() = ANG;
-    Vector3D translation;
+    Vector3D translation; //wektor translacji
     translation[0] = 50;
     translation[1] = 50;
     translation[2] = 50; 
 
+//przesuwanie drona w animacji o wektor translacji
     for (int i = 0;i<FramesInTranslation; i++)
     {
       auto temp = translation / FramesInTranslation;

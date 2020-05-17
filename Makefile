@@ -150,6 +150,33 @@ src/RotationMatrix.cpp.s:
 	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/src/RotationMatrix.cpp.s
 .PHONY : src/RotationMatrix.cpp.s
 
+src/Surface.o: src/Surface.cpp.o
+
+.PHONY : src/Surface.o
+
+# target to build an object file
+src/Surface.cpp.o:
+	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/src/Surface.cpp.o
+.PHONY : src/Surface.cpp.o
+
+src/Surface.i: src/Surface.cpp.i
+
+.PHONY : src/Surface.i
+
+# target to preprocess a source file
+src/Surface.cpp.i:
+	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/src/Surface.cpp.i
+.PHONY : src/Surface.cpp.i
+
+src/Surface.s: src/Surface.cpp.s
+
+.PHONY : src/Surface.s
+
+# target to generate assembly for a file
+src/Surface.cpp.s:
+	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/src/Surface.cpp.s
+.PHONY : src/Surface.cpp.s
+
 src/cuboid.o: src/cuboid.cpp.o
 
 .PHONY : src/cuboid.o
@@ -243,6 +270,9 @@ help:
 	@echo "... src/RotationMatrix.o"
 	@echo "... src/RotationMatrix.i"
 	@echo "... src/RotationMatrix.s"
+	@echo "... src/Surface.o"
+	@echo "... src/Surface.i"
+	@echo "... src/Surface.s"
 	@echo "... src/cuboid.o"
 	@echo "... src/cuboid.i"
 	@echo "... src/cuboid.s"

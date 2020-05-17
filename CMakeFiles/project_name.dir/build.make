@@ -81,9 +81,33 @@ CMakeFiles/project_name.dir/src/RotationMatrix.cpp.o.provides: CMakeFiles/projec
 CMakeFiles/project_name.dir/src/RotationMatrix.cpp.o.provides.build: CMakeFiles/project_name.dir/src/RotationMatrix.cpp.o
 
 
+CMakeFiles/project_name.dir/src/Surface.cpp.o: CMakeFiles/project_name.dir/flags.make
+CMakeFiles/project_name.dir/src/Surface.cpp.o: src/Surface.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/project_name.dir/src/Surface.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_name.dir/src/Surface.cpp.o -c /home/jakub/zad-5/src/Surface.cpp
+
+CMakeFiles/project_name.dir/src/Surface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project_name.dir/src/Surface.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jakub/zad-5/src/Surface.cpp > CMakeFiles/project_name.dir/src/Surface.cpp.i
+
+CMakeFiles/project_name.dir/src/Surface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project_name.dir/src/Surface.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jakub/zad-5/src/Surface.cpp -o CMakeFiles/project_name.dir/src/Surface.cpp.s
+
+CMakeFiles/project_name.dir/src/Surface.cpp.o.requires:
+
+.PHONY : CMakeFiles/project_name.dir/src/Surface.cpp.o.requires
+
+CMakeFiles/project_name.dir/src/Surface.cpp.o.provides: CMakeFiles/project_name.dir/src/Surface.cpp.o.requires
+	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/src/Surface.cpp.o.provides.build
+.PHONY : CMakeFiles/project_name.dir/src/Surface.cpp.o.provides
+
+CMakeFiles/project_name.dir/src/Surface.cpp.o.provides.build: CMakeFiles/project_name.dir/src/Surface.cpp.o
+
+
 CMakeFiles/project_name.dir/src/cuboid.cpp.o: CMakeFiles/project_name.dir/flags.make
 CMakeFiles/project_name.dir/src/cuboid.cpp.o: src/cuboid.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/project_name.dir/src/cuboid.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/project_name.dir/src/cuboid.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_name.dir/src/cuboid.cpp.o -c /home/jakub/zad-5/src/cuboid.cpp
 
 CMakeFiles/project_name.dir/src/cuboid.cpp.i: cmake_force
@@ -107,7 +131,7 @@ CMakeFiles/project_name.dir/src/cuboid.cpp.o.provides.build: CMakeFiles/project_
 
 CMakeFiles/project_name.dir/src/gnuplot_link.cpp.o: CMakeFiles/project_name.dir/flags.make
 CMakeFiles/project_name.dir/src/gnuplot_link.cpp.o: src/gnuplot_link.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/project_name.dir/src/gnuplot_link.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/project_name.dir/src/gnuplot_link.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_name.dir/src/gnuplot_link.cpp.o -c /home/jakub/zad-5/src/gnuplot_link.cpp
 
 CMakeFiles/project_name.dir/src/gnuplot_link.cpp.i: cmake_force
@@ -131,7 +155,7 @@ CMakeFiles/project_name.dir/src/gnuplot_link.cpp.o.provides.build: CMakeFiles/pr
 
 CMakeFiles/project_name.dir/src/main.cpp.o: CMakeFiles/project_name.dir/flags.make
 CMakeFiles/project_name.dir/src/main.cpp.o: src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/project_name.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/project_name.dir/src/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_name.dir/src/main.cpp.o -c /home/jakub/zad-5/src/main.cpp
 
 CMakeFiles/project_name.dir/src/main.cpp.i: cmake_force
@@ -156,6 +180,7 @@ CMakeFiles/project_name.dir/src/main.cpp.o.provides.build: CMakeFiles/project_na
 # Object files for target project_name
 project_name_OBJECTS = \
 "CMakeFiles/project_name.dir/src/RotationMatrix.cpp.o" \
+"CMakeFiles/project_name.dir/src/Surface.cpp.o" \
 "CMakeFiles/project_name.dir/src/cuboid.cpp.o" \
 "CMakeFiles/project_name.dir/src/gnuplot_link.cpp.o" \
 "CMakeFiles/project_name.dir/src/main.cpp.o"
@@ -164,12 +189,13 @@ project_name_OBJECTS = \
 project_name_EXTERNAL_OBJECTS =
 
 project_name: CMakeFiles/project_name.dir/src/RotationMatrix.cpp.o
+project_name: CMakeFiles/project_name.dir/src/Surface.cpp.o
 project_name: CMakeFiles/project_name.dir/src/cuboid.cpp.o
 project_name: CMakeFiles/project_name.dir/src/gnuplot_link.cpp.o
 project_name: CMakeFiles/project_name.dir/src/main.cpp.o
 project_name: CMakeFiles/project_name.dir/build.make
 project_name: CMakeFiles/project_name.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable project_name"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable project_name"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/project_name.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -178,6 +204,7 @@ CMakeFiles/project_name.dir/build: project_name
 .PHONY : CMakeFiles/project_name.dir/build
 
 CMakeFiles/project_name.dir/requires: CMakeFiles/project_name.dir/src/RotationMatrix.cpp.o.requires
+CMakeFiles/project_name.dir/requires: CMakeFiles/project_name.dir/src/Surface.cpp.o.requires
 CMakeFiles/project_name.dir/requires: CMakeFiles/project_name.dir/src/cuboid.cpp.o.requires
 CMakeFiles/project_name.dir/requires: CMakeFiles/project_name.dir/src/gnuplot_link.cpp.o.requires
 CMakeFiles/project_name.dir/requires: CMakeFiles/project_name.dir/src/main.cpp.o.requires

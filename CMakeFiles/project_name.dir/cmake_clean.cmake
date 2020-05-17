@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/project_name.dir/src/RotationMatrix.cpp.o"
+  "CMakeFiles/project_name.dir/src/Surface.cpp.o"
   "CMakeFiles/project_name.dir/src/cuboid.cpp.o"
   "CMakeFiles/project_name.dir/src/gnuplot_link.cpp.o"
   "CMakeFiles/project_name.dir/src/main.cpp.o"

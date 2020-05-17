@@ -1,17 +1,17 @@
-/*#include "cuboid.hh"
+#include "Surface.hh"
 #include <fstream>
 #include <iostream>
 #include "RotationMatrix.hh"
 #include <cmath>
-//using namespace std;
+using namespace std;
 
- Cuboid::Cuboid(): angle{0}
+Surface::Surface(const string filename): angle{0}
 {
     ifstream inputFile;
-    inputFile.open(kModelCuboid);
+    inputFile.open(filename);
     if(!inputFile.is_open())
     {
-        cerr << "Unable to load model Cuboid file!" 
+        cerr << "Unable to load model Surface file!" 
              << endl;
         return;
     }
@@ -24,7 +24,7 @@
     inputFile.close();
 }
 
-void Cuboid::draw(std::string filename) const
+void Surface::draw(std::string filename) const
 {
     ofstream outputFile;
     outputFile.open(filename);
@@ -43,4 +43,4 @@ void Cuboid::draw(std::string filename) const
             outputFile << "#\n\n";
         }
     }
-} */
+}

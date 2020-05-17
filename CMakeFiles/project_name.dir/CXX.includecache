@@ -10,9 +10,19 @@
 RotationMatrix.hh
 /home/jakub/zad-5/src/RotationMatrix.hh
 
+/home/jakub/zad-5/src/Surface.cpp
+Surface.hh
+/home/jakub/zad-5/src/Surface.hh
+fstream
+-
+iostream
+-
+RotationMatrix.hh
+/home/jakub/zad-5/src/RotationMatrix.hh
+cmath
+-
+
 /home/jakub/zad-5/src/cuboid.cpp
-cuboid.hh
-/home/jakub/zad-5/src/cuboid.hh
 fstream
 -
 iostream
@@ -59,6 +69,8 @@ gnuplot_link.hh
 /home/jakub/zad-5/src/gnuplot_link.hh
 cuboid.hh
 /home/jakub/zad-5/src/cuboid.hh
+Surface.hh
+/home/jakub/zad-5/src/Surface.hh
 chrono
 -
 thread
@@ -86,6 +98,16 @@ cmath
 rozmiar.hh
 inc/rozmiar.hh
 
+inc/Surface.hh
+vector
+-
+string
+-
+SWektor.hh
+inc/SWektor.hh
+SMacierz.hh
+inc/SMacierz.hh
+
 inc/cuboid.hh
 vector
 -
@@ -95,8 +117,8 @@ SWektor.hh
 inc/SWektor.hh
 SMacierz.hh
 inc/SMacierz.hh
-RotationMatrix.hh
-inc/RotationMatrix.hh
+Surface.hh
+inc/Surface.hh
 
 inc/gnuplot_link.hh
 string
