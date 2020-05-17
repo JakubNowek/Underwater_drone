@@ -4,7 +4,10 @@
 #include <string>
 #include "SWektor.hh"
 #include "SMacierz.hh"
+#include "gnuplot_link.hh"
 
+#include <chrono> //te dwie biblioteki sa od opznienia w animacji
+#include <thread> 
 
 
 using Vector3D = SWektor<double,3>;
@@ -25,4 +28,6 @@ public:
         translation = translation + change;
     }
     double& GetAngle()  {return angle;} //tak pozyskujemy kat
+   /*  void AnimatedTranslation();
+    void AnimatedRotation(double angle, Vector3D translation, PzG::GnuplotLink& link); */
 };

@@ -107,16 +107,14 @@ SWektor.hh
 inc/SWektor.hh
 SMacierz.hh
 inc/SMacierz.hh
+gnuplot_link.hh
+inc/gnuplot_link.hh
+chrono
+-
+thread
+-
 
 inc/cuboid.hh
-vector
--
-string
--
-SWektor.hh
-inc/SWektor.hh
-SMacierz.hh
-inc/SMacierz.hh
 Surface.hh
 inc/Surface.hh
 

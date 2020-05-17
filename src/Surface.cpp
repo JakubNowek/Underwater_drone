@@ -44,3 +44,8 @@ void Surface::draw(std::string filename) const
         }
     }
 }
+
+/* void Surface::AnimatedRotation(double angle, Vector3D translation, PzG::GnuplotLink& link)
+{
+
+} */

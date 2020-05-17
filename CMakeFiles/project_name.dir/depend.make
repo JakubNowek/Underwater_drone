@@ -12,6 +12,7 @@ CMakeFiles/project_name.dir/src/Surface.cpp.o: inc/RotationMatrix.hh
 CMakeFiles/project_name.dir/src/Surface.cpp.o: inc/SMacierz.hh
 CMakeFiles/project_name.dir/src/Surface.cpp.o: inc/SWektor.hh
 CMakeFiles/project_name.dir/src/Surface.cpp.o: inc/Surface.hh
+CMakeFiles/project_name.dir/src/Surface.cpp.o: inc/gnuplot_link.hh
 CMakeFiles/project_name.dir/src/Surface.cpp.o: inc/rozmiar.hh
 
 CMakeFiles/project_name.dir/src/cuboid.cpp.o: src/cuboid.cpp
