@@ -107,8 +107,6 @@ SWektor.hh
 inc/SWektor.hh
 SMacierz.hh
 inc/SMacierz.hh
-gnuplot_link.hh
-inc/gnuplot_link.hh
 chrono
 -
 thread

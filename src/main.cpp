@@ -42,7 +42,7 @@ int main()
     {
       auto temp = ANG/FramesInRotation;
       cuboid.GetAngle()=  i*temp;
-      cuboid.draw(kDroneFile); //najpierw rysujemy obrocony na osi z */
+      cuboid.draw(kDroneFile); //najpierw rysujemy obrocony na osi z 
       link.Draw();
       this_thread::sleep_for(chrono::milliseconds(15));
       
