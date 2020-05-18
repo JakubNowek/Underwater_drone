@@ -67,14 +67,18 @@ cmath
 -
 gnuplot_link.hh
 /home/jakub/zad-5/src/gnuplot_link.hh
-cuboid.hh
-/home/jakub/zad-5/src/cuboid.hh
 Surface.hh
 /home/jakub/zad-5/src/Surface.hh
+cuboid.hh
+/home/jakub/zad-5/src/cuboid.hh
+rectangle.hh
+/home/jakub/zad-5/src/rectangle.hh
 chrono
 -
 thread
 -
+
+/home/jakub/zad-5/src/rectangle.cpp
 
 inc/RotationMatrix.hh
 SMacierz.hh
@@ -123,6 +127,10 @@ list
 -
 vector
 -
+
+inc/rectangle.hh
+Surface.hh
+inc/Surface.hh
 
 inc/rozmiar.hh
 

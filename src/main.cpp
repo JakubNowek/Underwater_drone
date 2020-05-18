@@ -4,8 +4,9 @@
 #include <string>
 #include <cmath>
 #include "gnuplot_link.hh"
-#include "cuboid.hh"
 #include "Surface.hh"
+#include "cuboid.hh"
+#include "rectangle.hh"
 
 #include <chrono> //te dwie biblioteki sa od opznienia w animacji
 #include <thread> 
@@ -16,9 +17,12 @@
 using namespace std;
 const string kDroneFile("solid/drone.dat");
 const string kModelFile("solid/model.dat");
+const string kBottomFile("solid/bottom.dat");//////////aaaaa nie zapomniec dodac
+const string kRectFile("solid/rectangle.dat");//////////aaaaa nie zapomniec dodac 
 int main()
-{//aa
-    Cuboid cuboid(kModelFile);     
+{
+    Cuboid cuboid(kModelFile);  
+    Rectangle rect(kRectFile);   
     PzG::GnuplotLink link; // Ta zmienna jest potrzebna do wizualizacji
     link.SetRangeX(-40, 300);
     link.SetRangeY(-90, 200);
@@ -26,13 +30,16 @@ int main()
     link.SetRotationXZ(75,15);
     constexpr double ANG = 720; // tu na szybko jakis kat 
     int FramesInTranslation = 120;
-    int FramesInRotation = 720;
+    int FramesInRotation = 120;
     link.Init();
     link.AddFilename(kDroneFile.c_str(), PzG::LS_CONTINUOUS, 1);
+    link.AddFilename(kBottomFile.c_str(), PzG::LS_CONTINUOUS, 1);//////////////////////////////////////////////////////////////aaa nie zapomniec dodac///////////////////////
     link.SetDrawingMode(PzG::DM_3D);
 
+    rect.draw(kBottomFile);
     cuboid.draw(kDroneFile);
     link.Draw(); 
+
     this_thread::sleep_for(chrono::milliseconds(1500));
 
     Vector3D translation; //wektor translacji

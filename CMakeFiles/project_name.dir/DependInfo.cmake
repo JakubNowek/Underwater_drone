@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/jakub/zad-5/src/cuboid.cpp" "/home/jakub/zad-5/CMakeFiles/project_name.dir/src/cuboid.cpp.o"
   "/home/jakub/zad-5/src/gnuplot_link.cpp" "/home/jakub/zad-5/CMakeFiles/project_name.dir/src/gnuplot_link.cpp.o"
   "/home/jakub/zad-5/src/main.cpp" "/home/jakub/zad-5/CMakeFiles/project_name.dir/src/main.cpp.o"
+  "/home/jakub/zad-5/src/rectangle.cpp" "/home/jakub/zad-5/CMakeFiles/project_name.dir/src/rectangle.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

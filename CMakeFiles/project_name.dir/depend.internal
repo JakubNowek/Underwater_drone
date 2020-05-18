@@ -30,4 +30,7 @@ CMakeFiles/project_name.dir/src/main.cpp.o
  inc/Surface.hh
  inc/cuboid.hh
  inc/gnuplot_link.hh
+ inc/rectangle.hh
  inc/rozmiar.hh
+CMakeFiles/project_name.dir/src/rectangle.cpp.o
+ /home/jakub/zad-5/src/rectangle.cpp
