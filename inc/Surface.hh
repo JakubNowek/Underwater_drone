@@ -27,6 +27,10 @@ public:
     {
         translation = translation + change;
     }
+    void rotate(const double& change)
+    {
+        angle = angle + change;
+    }
     double& GetAngle()  {return angle;} //tak pozyskujemy kat
     /* void AnimatedTranslation();
     void AnimatedRotation(double angle, Vector3D translation, PzG::GnuplotLink& link,const std::string filename);  */
