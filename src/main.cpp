@@ -17,7 +17,7 @@ using namespace std;
 const string kDroneFile("solid/drone.dat");
 const string kModelFile("solid/model.dat");
 int main()
-{
+{//aa
     Cuboid cuboid(kModelFile);     
     PzG::GnuplotLink link; // Ta zmienna jest potrzebna do wizualizacji
     link.SetRangeX(-40, 300);
