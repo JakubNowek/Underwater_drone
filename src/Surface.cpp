@@ -23,9 +23,14 @@ Surface::Surface(const string filename): angle{0}
     }
     inputFile.close();
 }
+void Surface::translate(const Vector3D& change)
+{
+    translation =  translation + change;
+}
 
 void Surface::draw(std::string filename) const
 {
+
     ofstream outputFile;
     outputFile.open(filename);
     if(!outputFile.is_open())
@@ -34,7 +39,7 @@ void Surface::draw(std::string filename) const
         return;
     }
 
-    RotationMatrix Rotz((*this).angle);
+    RotationMatrix Rotz(angle);
     for(unsigned i = 0; i < points.size(); ++i)
     {
         outputFile << Rotz * points[i] + translation << endl;
@@ -45,18 +50,3 @@ void Surface::draw(std::string filename) const
     }
 }
 
- /*void Surface::AnimatedRotation(double angle, Vector3D translation, PzG::GnuplotLink& link, const string filename)
-{
-
-    const int FramesInRotation = 120;
-    for (int i = 0;i<FramesInRotation; i++)
-    {
-      auto temp = angle/FramesInRotation;
-      cuboid.GetAngle()=  i*temp;
-      cuboid.draw(filename); //najpierw rysujemy obrocony na osi z 
-      link.Draw();
-      this_thread::sleep_for(chrono::milliseconds(15));
-      
-    }
-
-}  */

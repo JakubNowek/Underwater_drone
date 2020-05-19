@@ -67,6 +67,8 @@ cuboid.hh
 /home/jakub/zad-5/src/cuboid.hh
 rectangle.hh
 /home/jakub/zad-5/src/rectangle.hh
+RotationMatrix.hh
+/home/jakub/zad-5/src/RotationMatrix.hh
 chrono
 -
 thread
@@ -115,8 +117,8 @@ SWektor.hh
 inc/SWektor.hh
 SMacierz.hh
 inc/SMacierz.hh
-chrono
--
+RotationMatrix.hh
+inc/RotationMatrix.hh
 thread
 -
 

@@ -8,6 +8,9 @@
 #include "cuboid.hh"
 #include "rectangle.hh"
 
+
+#include "RotationMatrix.hh"///////////////////inaczej jakos nie tu to
+
 #include <chrono> //te dwie biblioteki sa od opznienia w animacji
 #include <thread> 
 
@@ -28,7 +31,7 @@ int main()
     link.SetRangeY(-20, 300);
     link.SetRangeZ(-300, 70);
     link.SetRotationXZ(75,15);
-    constexpr double ANG = 720; // tu na szybko jakis kat 
+    constexpr double ANG = 90; // tu na szybko jakis kat 
     int FramesInTranslation = 120;
     int FramesInRotation = 120;
     link.Init();
@@ -51,15 +54,24 @@ int main()
     //obracanie drona w animacji 
     for (int i = 0;i<FramesInRotation; i++)
     {
-      //auto temp1 = ANG/FramesInRotation;
-      //cuboid.rotate(temp1);
-      //cuboid.draw(kDroneFile);
-      cuboid.Rotation(ANG,FramesInRotation,kDroneFile);
+      cuboid.Anim_Rotation(ANG,FramesInRotation,kDroneFile);
       link.Draw();
       this_thread::sleep_for(chrono::milliseconds(15));
     }
     
-     //link.Draw(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
+
+/*     RotationMatrix m(ANG);
+    translation = m*translation;   */
+    //translacja w animacji
+    for (int i = 0;i<FramesInTranslation; i++)
+    {
+      cuboid.Anim_Move(translation,FramesInTranslation,kDroneFile);
+      link.Draw();
+      this_thread::sleep_for(chrono::milliseconds(10));
+    }
+
+
+  
     cout << "Naciśnij ENTER, aby kontynuowac" << endl;
     cin.ignore(100000, '\n'); 
     return 0;
