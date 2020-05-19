@@ -33,28 +33,30 @@ int main()
     link.SetRangeX(-70, 300);
     link.SetRangeY(-70, 300);
     link.SetRangeZ(-300, 70);
-    link.SetRotationXZ(60,15);
+    link.SetRotationXZ(0,0);
     constexpr double ANG = 90; // tu na szybko jakis kat 
     int FramesInTranslation = 120;
     int FramesInRotation = 120;
     link.Init();
     link.AddFilename(kDroneFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.AddFilename(kBottomFile.c_str(), PzG::LS_CONTINUOUS, 1);
-    link.AddFilename(kWaterFile.c_str(), PzG::LS_CONTINUOUS, 1);
+    //link.AddFilename(kWaterFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.SetDrawingMode(PzG::DM_3D);
 
 //tu sie zaczyna rysowanie
     bottom.draw(kBottomFile);
     cuboid.draw(kDroneFile);
-    water.draw(kWaterFile);
+   // water.draw(kWaterFile);
     link.Draw(); 
-
-    this_thread::sleep_for(chrono::milliseconds(1500));
-
+ // a tutaj sobie przesuwamy, zeby zaczac w sensownym miejscu (nie na dnie i nie przy powierzchni)
+    RotationMatrix m(45+ANG);
     translation[0] = 50;
     translation[1] = 50;
-    translation[2] = 0; 
-    cuboid.translate(translation); // a tutaj sobie przesuwamy
+    translation[2] = 50; 
+    cuboid.translate(translation);
+    //this_thread::sleep_for(chrono::milliseconds(1000));
+
+
 
     //obracanie drona w animacji 
     for (int i = 0;i<FramesInRotation; i++)
@@ -64,10 +66,12 @@ int main()
       this_thread::sleep_for(chrono::milliseconds(15));
     }
     
+    translation[0] = 70;
+    translation[1] = 70;
+    translation[2] = 70; 
+      //translacja w animacji
 
-    RotationMatrix m(ANG);
     translation = m*translation;   
-    //translacja w animacji
     for (int i = 0;i<FramesInTranslation; i++)
     {
       cuboid.Anim_Move(translation,FramesInTranslation,kDroneFile);
