@@ -34,6 +34,16 @@ RotationMatrix.hh
 cmath
 -
 
+/home/jakub/zad-5/src/Water.cpp
+Water.hh
+/home/jakub/zad-5/src/Water.hh
+fstream
+-
+iostream
+-
+cmath
+-
+
 /home/jakub/zad-5/src/cuboid.cpp
 cuboid.hh
 /home/jakub/zad-5/src/cuboid.hh
@@ -79,6 +89,8 @@ cuboid.hh
 /home/jakub/zad-5/src/cuboid.hh
 Bottom.hh
 /home/jakub/zad-5/src/Bottom.hh
+Water.hh
+/home/jakub/zad-5/src/Water.hh
 RotationMatrix.hh
 /home/jakub/zad-5/src/RotationMatrix.hh
 chrono
@@ -125,6 +137,10 @@ RotationMatrix.hh
 inc/RotationMatrix.hh
 thread
 -
+
+inc/Water.hh
+Surface.hh
+inc/Surface.hh
 
 inc/cuboid.hh
 Surface.hh

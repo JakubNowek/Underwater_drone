@@ -7,7 +7,7 @@
 #include "Surface.hh"
 #include "cuboid.hh"
 #include "Bottom.hh"
-
+#include "Water.hh"
 
 #include "RotationMatrix.hh"///////////////////inaczej jakos nie tu to
 
@@ -21,10 +21,12 @@ using namespace std;
 const string kDroneFile("solid/drone.dat");
 const string kModelFile("solid/model.dat");
 const string kBottomFile("solid/bottom.dat");//////////aaaaa nie zapomniec dodac
+const string kWaterFile("solid/water.dat");
 int main()
 {
     Cuboid cuboid(kModelFile);  
     Bottom bottom(kBottomFile);
+    Water water(kWaterFile);
     Vector3D translation; //wektor translacji
     PzG::GnuplotLink link; // Ta zmienna jest potrzebna do wizualizacji
 
@@ -38,11 +40,13 @@ int main()
     link.Init();
     link.AddFilename(kDroneFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.AddFilename(kBottomFile.c_str(), PzG::LS_CONTINUOUS, 1);
+    link.AddFilename(kWaterFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.SetDrawingMode(PzG::DM_3D);
 
 //tu sie zaczyna rysowanie
     bottom.draw(kBottomFile);
     cuboid.draw(kDroneFile);
+    water.draw(kWaterFile);
     link.Draw(); 
 
     this_thread::sleep_for(chrono::milliseconds(1500));

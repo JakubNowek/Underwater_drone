@@ -22,6 +22,14 @@ CMakeFiles/project_name.dir/src/Surface.cpp.o
  inc/SWektor.hh
  inc/Surface.hh
  inc/rozmiar.hh
+CMakeFiles/project_name.dir/src/Water.cpp.o
+ /home/jakub/zad-5/src/Water.cpp
+ inc/RotationMatrix.hh
+ inc/SMacierz.hh
+ inc/SWektor.hh
+ inc/Surface.hh
+ inc/Water.hh
+ inc/rozmiar.hh
 CMakeFiles/project_name.dir/src/cuboid.cpp.o
  /home/jakub/zad-5/src/cuboid.cpp
  inc/RotationMatrix.hh
@@ -40,6 +48,7 @@ CMakeFiles/project_name.dir/src/main.cpp.o
  inc/SMacierz.hh
  inc/SWektor.hh
  inc/Surface.hh
+ inc/Water.hh
  inc/cuboid.hh
  inc/gnuplot_link.hh
  inc/rozmiar.hh

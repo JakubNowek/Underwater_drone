@@ -204,6 +204,33 @@ src/Surface.cpp.s:
 	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/src/Surface.cpp.s
 .PHONY : src/Surface.cpp.s
 
+src/Water.o: src/Water.cpp.o
+
+.PHONY : src/Water.o
+
+# target to build an object file
+src/Water.cpp.o:
+	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/src/Water.cpp.o
+.PHONY : src/Water.cpp.o
+
+src/Water.i: src/Water.cpp.i
+
+.PHONY : src/Water.i
+
+# target to preprocess a source file
+src/Water.cpp.i:
+	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/src/Water.cpp.i
+.PHONY : src/Water.cpp.i
+
+src/Water.s: src/Water.cpp.s
+
+.PHONY : src/Water.s
+
+# target to generate assembly for a file
+src/Water.cpp.s:
+	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/src/Water.cpp.s
+.PHONY : src/Water.cpp.s
+
 src/cuboid.o: src/cuboid.cpp.o
 
 .PHONY : src/cuboid.o
@@ -303,6 +330,9 @@ help:
 	@echo "... src/Surface.o"
 	@echo "... src/Surface.i"
 	@echo "... src/Surface.s"
+	@echo "... src/Water.o"
+	@echo "... src/Water.i"
+	@echo "... src/Water.s"
 	@echo "... src/cuboid.o"
 	@echo "... src/cuboid.i"
 	@echo "... src/cuboid.s"

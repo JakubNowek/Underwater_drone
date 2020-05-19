@@ -10,8 +10,8 @@ using namespace std;
 #define BOTTOM_XMAX      300
 #define BOTTOM_YO        -70
 #define BOTTOM_YMAX      300
-#define BOTTOM_UNIT_WIDTH_X   10
-#define BOTTOM_UNIT_WIDTH_Y   10
+#define BOTTOM_UNIT_WIDTH_X   25
+#define BOTTOM_UNIT_WIDTH_Y   25
 #define DEPTH_Z   -300
 void Bottom::draw(std::string filename) const
 {
