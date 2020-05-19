@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+/home/jakub/zad-5/src/Bottom.cpp
+Bottom.hh
+/home/jakub/zad-5/src/Bottom.hh
+fstream
+-
+iostream
+-
+RotationMatrix.hh
+/home/jakub/zad-5/src/RotationMatrix.hh
+cmath
+-
+
 /home/jakub/zad-5/src/RotationMatrix.cpp
 RotationMatrix.hh
 /home/jakub/zad-5/src/RotationMatrix.hh
@@ -65,8 +77,8 @@ Surface.hh
 /home/jakub/zad-5/src/Surface.hh
 cuboid.hh
 /home/jakub/zad-5/src/cuboid.hh
-rectangle.hh
-/home/jakub/zad-5/src/rectangle.hh
+Bottom.hh
+/home/jakub/zad-5/src/Bottom.hh
 RotationMatrix.hh
 /home/jakub/zad-5/src/RotationMatrix.hh
 chrono
@@ -74,17 +86,9 @@ chrono
 thread
 -
 
-/home/jakub/zad-5/src/rectangle.cpp
-rectangle.hh
-/home/jakub/zad-5/src/rectangle.hh
-fstream
--
-iostream
--
-RotationMatrix.hh
-/home/jakub/zad-5/src/RotationMatrix.hh
-cmath
--
+inc/Bottom.hh
+Surface.hh
+inc/Surface.hh
 
 inc/RotationMatrix.hh
 SMacierz.hh
@@ -133,10 +137,6 @@ list
 -
 vector
 -
-
-inc/rectangle.hh
-Surface.hh
-inc/Surface.hh
 
 inc/rozmiar.hh
 

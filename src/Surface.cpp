@@ -6,7 +6,7 @@
 using namespace std;
 
 Surface::Surface(const string filename): angle{0}
-{
+{   
     ifstream inputFile;
     inputFile.open(filename);
     if(!inputFile.is_open())
@@ -22,6 +22,11 @@ Surface::Surface(const string filename): angle{0}
         points.push_back(point);
     }
     inputFile.close();
+    //ustawianie wartosci poczatkowej wektora translacji 
+    translation[0] = 0;
+    translation[1] = 0;
+    translation[2] = 0; 
+
 }
 void Surface::translate(const Vector3D& change)
 {

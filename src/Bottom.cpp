@@ -1,4 +1,4 @@
-#include "rectangle.hh"
+#include "Bottom.hh"
 #include <fstream>
 #include <iostream>
 #include "RotationMatrix.hh"
@@ -6,14 +6,14 @@
 
 using namespace std;
 
-#define BOTTOM_XO        -20
+#define BOTTOM_XO        -70
 #define BOTTOM_XMAX      300
-#define BOTTOM_YO        -20
+#define BOTTOM_YO        -70
 #define BOTTOM_YMAX      300
 #define BOTTOM_UNIT_WIDTH_X   10
 #define BOTTOM_UNIT_WIDTH_Y   10
 #define DEPTH_Z   -300
-void Rectangle::draw(std::string filename) const
+void Bottom::draw(std::string filename) const
 {
     ofstream outputFile;
     outputFile.open(filename);

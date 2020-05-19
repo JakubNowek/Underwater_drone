@@ -123,6 +123,33 @@ project_name/fast:
 	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/build
 .PHONY : project_name/fast
 
+src/Bottom.o: src/Bottom.cpp.o
+
+.PHONY : src/Bottom.o
+
+# target to build an object file
+src/Bottom.cpp.o:
+	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/src/Bottom.cpp.o
+.PHONY : src/Bottom.cpp.o
+
+src/Bottom.i: src/Bottom.cpp.i
+
+.PHONY : src/Bottom.i
+
+# target to preprocess a source file
+src/Bottom.cpp.i:
+	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/src/Bottom.cpp.i
+.PHONY : src/Bottom.cpp.i
+
+src/Bottom.s: src/Bottom.cpp.s
+
+.PHONY : src/Bottom.s
+
+# target to generate assembly for a file
+src/Bottom.cpp.s:
+	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/src/Bottom.cpp.s
+.PHONY : src/Bottom.cpp.s
+
 src/RotationMatrix.o: src/RotationMatrix.cpp.o
 
 .PHONY : src/RotationMatrix.o
@@ -258,33 +285,6 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/rectangle.o: src/rectangle.cpp.o
-
-.PHONY : src/rectangle.o
-
-# target to build an object file
-src/rectangle.cpp.o:
-	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/src/rectangle.cpp.o
-.PHONY : src/rectangle.cpp.o
-
-src/rectangle.i: src/rectangle.cpp.i
-
-.PHONY : src/rectangle.i
-
-# target to preprocess a source file
-src/rectangle.cpp.i:
-	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/src/rectangle.cpp.i
-.PHONY : src/rectangle.cpp.i
-
-src/rectangle.s: src/rectangle.cpp.s
-
-.PHONY : src/rectangle.s
-
-# target to generate assembly for a file
-src/rectangle.cpp.s:
-	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/src/rectangle.cpp.s
-.PHONY : src/rectangle.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -294,6 +294,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... project_name"
 	@echo "... edit_cache"
+	@echo "... src/Bottom.o"
+	@echo "... src/Bottom.i"
+	@echo "... src/Bottom.s"
 	@echo "... src/RotationMatrix.o"
 	@echo "... src/RotationMatrix.i"
 	@echo "... src/RotationMatrix.s"
@@ -309,9 +312,6 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/rectangle.o"
-	@echo "... src/rectangle.i"
-	@echo "... src/rectangle.s"
 .PHONY : help
 
 

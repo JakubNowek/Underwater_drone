@@ -6,7 +6,7 @@
 #include "gnuplot_link.hh"
 #include "Surface.hh"
 #include "cuboid.hh"
-#include "rectangle.hh"
+#include "Bottom.hh"
 
 
 #include "RotationMatrix.hh"///////////////////inaczej jakos nie tu to
@@ -21,16 +21,17 @@ using namespace std;
 const string kDroneFile("solid/drone.dat");
 const string kModelFile("solid/model.dat");
 const string kBottomFile("solid/bottom.dat");//////////aaaaa nie zapomniec dodac
-const string kRectFile("solid/rectangle.dat");//////////aaaaa nie zapomniec dodac 
 int main()
 {
     Cuboid cuboid(kModelFile);  
-    Rectangle rect(kRectFile);   
+    Bottom bottom(kBottomFile);
+    Vector3D translation; //wektor translacji
     PzG::GnuplotLink link; // Ta zmienna jest potrzebna do wizualizacji
-    link.SetRangeX(-20, 300);
-    link.SetRangeY(-20, 300);
+
+    link.SetRangeX(-70, 300);
+    link.SetRangeY(-70, 300);
     link.SetRangeZ(-300, 70);
-    link.SetRotationXZ(75,15);
+    link.SetRotationXZ(60,15);
     constexpr double ANG = 90; // tu na szybko jakis kat 
     int FramesInTranslation = 120;
     int FramesInRotation = 120;
@@ -39,16 +40,16 @@ int main()
     link.AddFilename(kBottomFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.SetDrawingMode(PzG::DM_3D);
 
-    rect.draw(kBottomFile);
+//tu sie zaczyna rysowanie
+    bottom.draw(kBottomFile);
     cuboid.draw(kDroneFile);
     link.Draw(); 
 
     this_thread::sleep_for(chrono::milliseconds(1500));
 
-    Vector3D translation; //wektor translacji
     translation[0] = 50;
     translation[1] = 50;
-    translation[2] = 50; 
+    translation[2] = 0; 
     cuboid.translate(translation); // a tutaj sobie przesuwamy
 
     //obracanie drona w animacji 
@@ -60,8 +61,8 @@ int main()
     }
     
 
-/*     RotationMatrix m(ANG);
-    translation = m*translation;   */
+    RotationMatrix m(ANG);
+    translation = m*translation;   
     //translacja w animacji
     for (int i = 0;i<FramesInTranslation; i++)
     {
