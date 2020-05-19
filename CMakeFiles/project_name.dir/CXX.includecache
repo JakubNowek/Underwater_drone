@@ -23,14 +23,8 @@ cmath
 -
 
 /home/jakub/zad-5/src/cuboid.cpp
-fstream
--
-iostream
--
-RotationMatrix.hh
-/home/jakub/zad-5/src/RotationMatrix.hh
-cmath
--
+cuboid.hh
+/home/jakub/zad-5/src/cuboid.hh
 
 /home/jakub/zad-5/src/gnuplot_link.cpp
 cstdlib
@@ -79,6 +73,16 @@ thread
 -
 
 /home/jakub/zad-5/src/rectangle.cpp
+rectangle.hh
+/home/jakub/zad-5/src/rectangle.hh
+fstream
+-
+iostream
+-
+RotationMatrix.hh
+/home/jakub/zad-5/src/RotationMatrix.hh
+cmath
+-
 
 inc/RotationMatrix.hh
 SMacierz.hh

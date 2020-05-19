@@ -24,16 +24,16 @@ int main()
     Cuboid cuboid(kModelFile);  
     Rectangle rect(kRectFile);   
     PzG::GnuplotLink link; // Ta zmienna jest potrzebna do wizualizacji
-    link.SetRangeX(-40, 300);
-    link.SetRangeY(-90, 200);
-    link.SetRangeZ(-20, 500);
+    link.SetRangeX(-20, 300);
+    link.SetRangeY(-20, 300);
+    link.SetRangeZ(-300, 70);
     link.SetRotationXZ(75,15);
     constexpr double ANG = 720; // tu na szybko jakis kat 
     int FramesInTranslation = 120;
     int FramesInRotation = 120;
     link.Init();
     link.AddFilename(kDroneFile.c_str(), PzG::LS_CONTINUOUS, 1);
-    link.AddFilename(kBottomFile.c_str(), PzG::LS_CONTINUOUS, 1);//////////////////////////////////////////////////////////////aaa nie zapomniec dodac///////////////////////
+    link.AddFilename(kBottomFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.SetDrawingMode(PzG::DM_3D);
 
     rect.draw(kBottomFile);
@@ -51,9 +51,10 @@ int main()
     //obracanie drona w animacji 
     for (int i = 0;i<FramesInRotation; i++)
     {
-      auto temp1 = ANG/FramesInRotation;
-      cuboid.rotate(temp1);
-      cuboid.draw(kDroneFile);
+      //auto temp1 = ANG/FramesInRotation;
+      //cuboid.rotate(temp1);
+      //cuboid.draw(kDroneFile);
+      cuboid.Rotation(ANG,FramesInRotation,kDroneFile);
       link.Draw();
       this_thread::sleep_for(chrono::milliseconds(15));
     }
