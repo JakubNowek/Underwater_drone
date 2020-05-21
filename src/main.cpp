@@ -41,7 +41,7 @@ int main()
     link.Init();
     link.AddFilename(kDroneFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.AddFilename(kBottomFile.c_str(), PzG::LS_CONTINUOUS, 1);
-    //link.AddFilename(kWaterFile.c_str(), PzG::LS_CONTINUOUS, 1);
+    link.AddFilename(kWaterFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.SetDrawingMode(PzG::DM_3D);
     // a tutaj sobie przesuwamy, zeby zaczac w sensownym miejscu (nie na dnie i nie przy powierzchni)
     RotationMatrix m(-45 +ANG);
@@ -52,8 +52,9 @@ int main()
 //tu sie zaczyna rysowanie
     bottom.draw(kBottomFile);
     cuboid.draw(kDroneFile);
-   // water.draw(kWaterFile);
+    water.draw(kWaterFile);
     link.Draw(); 
+    int FLAGA = 0;
  while (choice[0] != 'Q') 
     {   
         cout << "Witaj kierowco drona!\n";
@@ -78,7 +79,9 @@ int main()
                         link.Draw();
                         this_thread::sleep_for(chrono::milliseconds(15));
                       }
-                      cout << "aaaaaaaaaaaaaaaaaa ANG "<<ANG <<endl;; break;     
+                      cout << "aaaaaaaaaaaaaaaaaa ANG "<<ANG <<endl;
+                      FLAGA +=1;
+                      ; break;     
             case '2': cout<<"podaj odleglosc :  ";
                       cin>>distance;
                       cout<<endl;
@@ -89,7 +92,7 @@ int main()
                       translation[1] = distance*sqrt(2)/2;
                       translation[2] = distance*tan(movementAngle*M_PI/180); 
                       //translacja w animacji
-                      m = m.AddAngle(-45+ANG);
+                      m = m.AddAngle(-45+ANG*FLAGA);
                       translation = m*translation;   
                       for (int i = 0;i<FramesInTranslation; i++)
                       {
@@ -98,7 +101,7 @@ int main()
                         this_thread::sleep_for(chrono::milliseconds(10));
                       } 
                       cout << "aaaaaaaaaaaaaaaaaa ANG "<<ANG <<endl;; break;
-            case 'Q': cout <<"Wysiadka BULWO" ; break;
+            case 'Q': cout <<"Wysiadka BULWO"<<endl; break;
             default : cout << "\t\tnierozpoznane\n"; break;
         }
     } 
