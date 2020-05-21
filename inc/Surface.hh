@@ -6,28 +6,33 @@
 #include "SMacierz.hh"
 #include "RotationMatrix.hh"
 
-/* #include <chrono> //te dwie biblioteki sa od opznienia w animacji
-#include <thread> 
- */
-
 using Vector3D = SWektor<double,3>;
 
-
+/**
+ * @brief klasa bazowa modelujaca pojecie obiektu 3D, zawiera:
+ * - wierzcholki bryl
+ * - aktualne przesuniecie bryly 
+ * - aktualny kat o jaki bryla jest obrocona
+ */
 class Surface{
 
 protected: 
     std::vector<Vector3D> points;
-    Vector3D translation;
+    Vector3D translation; //aktualne przesuniecie obiektu
     double angle; //kąt o który obracamy
 
 public:
     Surface(const std::string filename);
     void draw(std::string filename) const;
-    void translate(const Vector3D& change);
-   
-    void rotate(const double& change)
+    void translate(const Vector3D& change);  
+    void rotate(const double& change) //powoduje ,ze kat obrotu jest suma wszystkich katow obrotu, eiminujac bledy powielania
     {
         angle = angle + change;
     }
     double& GetAngle()  {return angle;} //tak pozyskujemy kat
+
+    //nwm czy se przyda wiec zakomentowalem
+   /*  Vector3D operator [] (unsigned int Ind) const { return points[Ind]; }
+    Vector3D  &operator [] (unsigned int Ind)       { return points[Ind]; } */
+   /*  void CollisionWaterBottom(Cuboid const cuboid ,Water const water, Bottom const bottom); */
 };

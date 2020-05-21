@@ -1,9 +1,14 @@
 #include "RotationMatrix.hh"
 
-
+/**
+ * @brief konstruktor parametryczny tworzacy macierz rotacji wzgledem osi OZ
+ * 
+ * @param angle - kat o ktory chcemy obroic strukture w przestrzeni 3D
+ * @return RotationMatrix RotationMatrix - gotowa macierz obrotu wzgledem osi OZ 
+ */
 RotationMatrix :: RotationMatrix(double angle)
 {
-    double angleRad;
+    double angleRad; //kat w radianach
     angleRad = angle*M_PI/180;
     _Kolumna[0][0] = cos(angleRad);
     _Kolumna[0][1] = -sin(angleRad);
@@ -16,9 +21,15 @@ RotationMatrix :: RotationMatrix(double angle)
     _Kolumna[2][2] = 1;
 }
 
+/**
+ * @brief 
+ * 
+ * @param angle - kat o ktory chcemy obroic strukture w przestrzeni 3D
+ * @return RotationMatrix - macierz obrotu wzgledem osi OZ ze zmieniona wartoscia kata
+ */
 RotationMatrix RotationMatrix::AddAngle(double angle)
 {
-    RotationMatrix Rot(angle);
+    RotationMatrix Rot(angle);  //macierz pomocnicza
     double angleRad;
     angleRad = angle*M_PI/180;
     Rot._Kolumna[0][0] = cos(angleRad);

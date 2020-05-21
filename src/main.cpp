@@ -9,7 +9,7 @@
 #include "Bottom.hh"
 #include "Water.hh"
 
-#include "RotationMatrix.hh"///////////////////inaczej jakos nie tu to
+#include "RotationMatrix.hh"
 
 #include <chrono> //te dwie biblioteki sa od opznienia w animacji
 #include <thread> 
@@ -20,7 +20,7 @@
 using namespace std;
 const string kDroneFile("solid/drone.dat");
 const string kModelFile("solid/model.dat");
-const string kBottomFile("solid/bottom.dat");//////////aaaaa nie zapomniec dodac
+const string kBottomFile("solid/bottom.dat");
 const string kWaterFile("solid/water.dat");
 int main()
 {
@@ -29,15 +29,15 @@ int main()
     Water water(kWaterFile);
     Vector3D translation; //wektor translacji
     PzG::GnuplotLink link; // Ta zmienna jest potrzebna do wizualizacji
-    double distance, movementAngle;
-    char choice[2] = " ";
+    double distance, movementAngle; //odleglosc i kat wznoszenia/opadania podane przez uzytkownika
+    char choice[2] = " "; //tablica znakow zapisujaca wybor uzytkownika
     link.SetRangeX(-70, 300);
     link.SetRangeY(-70, 300);
     link.SetRangeZ(-300, 70);
-    link.SetRotationXZ(0,0);
-    double ANG = 0; // tu na szybko jakis kat 
-    constexpr int FramesInTranslation = 120;
-    constexpr int FramesInRotation = 120;
+    link.SetRotationXZ(60,15);
+    double ANG = 0; //kat podany przez uzytkownika
+    constexpr int FramesInTranslation = 120;//liczba kltek w animacji przesuniecia
+    constexpr int FramesInRotation = 120;//liczba klatek w animacji obrotu
     link.Init();
     link.AddFilename(kDroneFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.AddFilename(kBottomFile.c_str(), PzG::LS_CONTINUOUS, 1);
@@ -49,22 +49,23 @@ int main()
     translation[1] = 50;
     translation[2] = 0; 
     cuboid.translate(translation);
-//tu sie zaczyna rysowanie
+    //tu sie zaczyna rysowanie
     bottom.draw(kBottomFile);
     cuboid.draw(kDroneFile);
     water.draw(kWaterFile);
     link.Draw(); 
-    int FLAGA = 0;
+    int FLAGA = 0; //zlicza ile zostalo wykonanych operacji obrotu i przekazuje te informacje do funkcji translacji
+cout << "Witaj kierowco drona!\n";
  while (choice[0] != 'Q') 
     {   
-        cout << "Witaj kierowco drona!\n";
+
         cout << "\nCo chcesz teraz zrobic? :\n"; 
         cout << "  1 - Obrot  \n";
         cout << "  2 - Przemiesc sie  \n";
         cout << "  Q - Katapulta (szybkie wysiadanie) \n";
         cout << "Twoj wybor: ";
         cin >> choice;
-        cout << "\nWybrales opcje \n",choice[0];
+        cout << "\nWybrales opcje \n"<<choice[0];
 
         switch (choice[0]) 
         {   
@@ -72,14 +73,13 @@ int main()
                       cin>>ANG;
                       cout<<endl;
                       m = m.AddAngle(-45+ANG);
-                      //obracanie drona w animacji 
+                      //obracanie drona w animacji//
                       for (int i = 0;i<FramesInRotation; i++)
                       {
                         cuboid.Anim_Rotation(ANG,FramesInRotation,kDroneFile);
                         link.Draw();
                         this_thread::sleep_for(chrono::milliseconds(15));
                       }
-                      cout << "aaaaaaaaaaaaaaaaaa ANG "<<ANG <<endl;
                       FLAGA +=1;
                       ; break;     
             case '2': cout<<"podaj odleglosc :  ";
@@ -91,7 +91,7 @@ int main()
                       translation[0] = distance*sqrt(2)/2;
                       translation[1] = distance*sqrt(2)/2;
                       translation[2] = distance*tan(movementAngle*M_PI/180); 
-                      //translacja w animacji
+                      //translacja w animacji//
                       m = m.AddAngle(-45+ANG*FLAGA);
                       translation = m*translation;   
                       for (int i = 0;i<FramesInTranslation; i++)
@@ -100,9 +100,8 @@ int main()
                         link.Draw();
                         this_thread::sleep_for(chrono::milliseconds(10));
                       } 
-                      cout << "aaaaaaaaaaaaaaaaaa ANG "<<ANG <<endl;; break;
-            case 'Q': cout <<"Wysiadka BULWO"<<endl; break;
-            default : cout << "\t\tnierozpoznane\n"; break;
+            case 'Q': cout <<endl<<"Wysiadka BULWO"<<endl; break;
+            default : cout << "NIEROZPOZNANO"<<endl; break;
         }
     } 
 

@@ -5,6 +5,12 @@
 #include <cmath>
 using namespace std;
 
+
+/**
+ * @brief Construct a new Surface:: Surface object
+ * 
+ * @param filename - plik z ktorego czytamy bryle
+ */
 Surface::Surface(const string filename): angle{0}
 {   
     ifstream inputFile;
@@ -28,11 +34,22 @@ Surface::Surface(const string filename): angle{0}
     translation[2] = 0; 
 
 }
+
+/**
+ * @brief metoda zmienia wartosc translacji o wprowadzona wielkosc 
+ * 
+ * @param change - zmiana translacji 
+ */
 void Surface::translate(const Vector3D& change)
 {
     translation =  translation + change;
 }
 
+/**
+ * @brief metoda zapisujaca zmienione wspolrzedne bryly do pliku, z ktorego gnuplot bedzie rysowac
+ * 
+ * @param filename - nazwa pliku do ktorego zaisujemy
+ */
 void Surface::draw(std::string filename) const
 {
 
@@ -55,3 +72,7 @@ void Surface::draw(std::string filename) const
     }
 }
 
+/* void Surface::CollisionWaterBottom(Cuboid const cuboid ,Water const water, Bottom const bottom)
+{
+
+} */
