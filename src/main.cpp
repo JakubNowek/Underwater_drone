@@ -34,7 +34,7 @@ int main()
     link.SetRangeY(-70, 300);
     link.SetRangeZ(-300, 70);
     link.SetRotationXZ(0,0);
-    constexpr double ANG = 90; // tu na szybko jakis kat 
+    /* constexpr  */double ANG = 75; // tu na szybko jakis kat 
     int FramesInTranslation = 120;
     int FramesInRotation = 120;
     link.Init();
@@ -49,15 +49,15 @@ int main()
    // water.draw(kWaterFile);
     link.Draw(); 
  // a tutaj sobie przesuwamy, zeby zaczac w sensownym miejscu (nie na dnie i nie przy powierzchni)
-    RotationMatrix m(45+ANG);
+    RotationMatrix m(-45);
     translation[0] = 50;
     translation[1] = 50;
     translation[2] = 50; 
     cuboid.translate(translation);
     //this_thread::sleep_for(chrono::milliseconds(1000));
 
-
-
+    m = m.AddAngle(-45+ANG);
+    
     //obracanie drona w animacji 
     for (int i = 0;i<FramesInRotation; i++)
     {
@@ -65,12 +65,12 @@ int main()
       link.Draw();
       this_thread::sleep_for(chrono::milliseconds(15));
     }
-    
+
     translation[0] = 70;
     translation[1] = 70;
-    translation[2] = 70; 
+    translation[2] = 10; 
       //translacja w animacji
-
+//m = m.AddAngle(-45+ANG);
     translation = m*translation;   
     for (int i = 0;i<FramesInTranslation; i++)
     {

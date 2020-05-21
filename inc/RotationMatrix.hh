@@ -9,6 +9,7 @@ class RotationMatrix : public SMacierz<double,3>
     public:
     
     RotationMatrix(double angle);
+    RotationMatrix AddAngle(double angle);
 };
  
 //zrobie jak bedzie na czas, na razie po neandertalsku mam w cuboidzie
