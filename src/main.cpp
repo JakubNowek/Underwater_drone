@@ -29,14 +29,14 @@ int main()
     Water water(kWaterFile);
     Vector3D translation; //wektor translacji
     PzG::GnuplotLink link; // Ta zmienna jest potrzebna do wizualizacji
-
+    double distance, movementAngle;
     link.SetRangeX(-70, 300);
     link.SetRangeY(-70, 300);
     link.SetRangeZ(-300, 70);
-    link.SetRotationXZ(0,0);
-    /* constexpr  */double ANG = 75; // tu na szybko jakis kat 
-    int FramesInTranslation = 120;
-    int FramesInRotation = 120;
+    link.SetRotationXZ(60,15);
+    double ANG = 75; // tu na szybko jakis kat 
+    constexpr int FramesInTranslation = 120;
+    constexpr int FramesInRotation = 120;
     link.Init();
     link.AddFilename(kDroneFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.AddFilename(kBottomFile.c_str(), PzG::LS_CONTINUOUS, 1);
@@ -50,11 +50,15 @@ int main()
     link.Draw(); 
  // a tutaj sobie przesuwamy, zeby zaczac w sensownym miejscu (nie na dnie i nie przy powierzchni)
     RotationMatrix m(-45);
+
     translation[0] = 50;
     translation[1] = 50;
-    translation[2] = 50; 
+    translation[2] = 0; 
     cuboid.translate(translation);
     //this_thread::sleep_for(chrono::milliseconds(1000));
+cout<<"podaj kat:  ";
+cin>>ANG;
+cout<<endl;
 
     m = m.AddAngle(-45+ANG);
     
@@ -65,10 +69,17 @@ int main()
       link.Draw();
       this_thread::sleep_for(chrono::milliseconds(15));
     }
-
-    translation[0] = 70;
-    translation[1] = 70;
-    translation[2] = 10; 
+//cin.ignore(100000, '\n'); 
+cout<<"podaj odleglosc :  ";
+cin>>distance;
+cout<<endl;
+cout<<"podaj kat :  ";
+cin>>movementAngle;
+cout<<endl;
+cout<<"translacja zeeeetttttt :  "<<tan(movementAngle*M_PI/180)<<endl;
+    translation[0] = distance*sqrt(2)/2;
+    translation[1] = distance*sqrt(2)/2;
+    translation[2] = distance*tan(movementAngle*M_PI/180); 
       //translacja w animacji
 //m = m.AddAngle(-45+ANG);
     translation = m*translation;   
@@ -82,6 +93,6 @@ int main()
 
   
     cout << "Naciśnij ENTER, aby kontynuowac" << endl;
+    cin.ignore(100000, '\n');
     cin.ignore(100000, '\n'); 
-    return 0;
 }
