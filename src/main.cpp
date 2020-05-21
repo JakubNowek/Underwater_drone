@@ -30,11 +30,12 @@ int main()
     Vector3D translation; //wektor translacji
     PzG::GnuplotLink link; // Ta zmienna jest potrzebna do wizualizacji
     double distance, movementAngle;
+    char choice[2] = " ";
     link.SetRangeX(-70, 300);
     link.SetRangeY(-70, 300);
     link.SetRangeZ(-300, 70);
-    link.SetRotationXZ(60,15);
-    double ANG = 75; // tu na szybko jakis kat 
+    link.SetRotationXZ(0,0);
+    double ANG = 0; // tu na szybko jakis kat 
     constexpr int FramesInTranslation = 120;
     constexpr int FramesInRotation = 120;
     link.Init();
@@ -42,57 +43,79 @@ int main()
     link.AddFilename(kBottomFile.c_str(), PzG::LS_CONTINUOUS, 1);
     //link.AddFilename(kWaterFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.SetDrawingMode(PzG::DM_3D);
-
+    // a tutaj sobie przesuwamy, zeby zaczac w sensownym miejscu (nie na dnie i nie przy powierzchni)
+    RotationMatrix m(-45 +ANG);
+    translation[0] = 50;
+    translation[1] = 50;
+    translation[2] = 0; 
+    cuboid.translate(translation);
 //tu sie zaczyna rysowanie
     bottom.draw(kBottomFile);
     cuboid.draw(kDroneFile);
    // water.draw(kWaterFile);
     link.Draw(); 
- // a tutaj sobie przesuwamy, zeby zaczac w sensownym miejscu (nie na dnie i nie przy powierzchni)
-    RotationMatrix m(-45);
+ while (choice[0] != 'Q') 
+    {   
+        cout << "Witaj kierowco drona!\n";
+        cout << "\nCo chcesz teraz zrobic? :\n"; 
+        cout << "  1 - Obrot  \n";
+        cout << "  2 - Przemiesc sie  \n";
+        cout << "  Q - Katapulta (szybkie wysiadanie) \n";
+        cout << "Twoj wybor: ";
+        cin >> choice;
+        cout << "\nWybrales opcje \n",choice[0];
 
-    translation[0] = 50;
-    translation[1] = 50;
-    translation[2] = 0; 
-    cuboid.translate(translation);
+        switch (choice[0]) 
+        {   
+            case '1': cout<<"podaj kat:  ";
+                      cin>>ANG;
+                      cout<<endl;
+                      m = m.AddAngle(-45+ANG);
+                      //obracanie drona w animacji 
+                      for (int i = 0;i<FramesInRotation; i++)
+                      {
+                        cuboid.Anim_Rotation(ANG,FramesInRotation,kDroneFile);
+                        link.Draw();
+                        this_thread::sleep_for(chrono::milliseconds(15));
+                      }
+                      cout << "aaaaaaaaaaaaaaaaaa ANG "<<ANG <<endl;; break;     
+            case '2': cout<<"podaj odleglosc :  ";
+                      cin>>distance;
+                      cout<<endl;
+                      cout<<"podaj kat :  ";
+                      cin>>movementAngle;
+                      cout<<endl;
+                      translation[0] = distance*sqrt(2)/2;
+                      translation[1] = distance*sqrt(2)/2;
+                      translation[2] = distance*tan(movementAngle*M_PI/180); 
+                      //translacja w animacji
+                      m = m.AddAngle(-45+ANG);
+                      translation = m*translation;   
+                      for (int i = 0;i<FramesInTranslation; i++)
+                      {
+                        cuboid.Anim_Move(translation,FramesInTranslation,kDroneFile);
+                        link.Draw();
+                        this_thread::sleep_for(chrono::milliseconds(10));
+                      } 
+                      cout << "aaaaaaaaaaaaaaaaaa ANG "<<ANG <<endl;; break;
+            case 'Q': cout <<"Wysiadka BULWO" ; break;
+            default : cout << "\t\tnierozpoznane\n"; break;
+        }
+    } 
+
     //this_thread::sleep_for(chrono::milliseconds(1000));
-cout<<"podaj kat:  ";
-cin>>ANG;
-cout<<endl;
 
-    m = m.AddAngle(-45+ANG);
-    
-    //obracanie drona w animacji 
-    for (int i = 0;i<FramesInRotation; i++)
-    {
-      cuboid.Anim_Rotation(ANG,FramesInRotation,kDroneFile);
-      link.Draw();
-      this_thread::sleep_for(chrono::milliseconds(15));
-    }
 //cin.ignore(100000, '\n'); 
-cout<<"podaj odleglosc :  ";
-cin>>distance;
-cout<<endl;
-cout<<"podaj kat :  ";
-cin>>movementAngle;
-cout<<endl;
-cout<<"translacja zeeeetttttt :  "<<tan(movementAngle*M_PI/180)<<endl;
-    translation[0] = distance*sqrt(2)/2;
-    translation[1] = distance*sqrt(2)/2;
-    translation[2] = distance*tan(movementAngle*M_PI/180); 
-      //translacja w animacji
-//m = m.AddAngle(-45+ANG);
-    translation = m*translation;   
-    for (int i = 0;i<FramesInTranslation; i++)
-    {
-      cuboid.Anim_Move(translation,FramesInTranslation,kDroneFile);
-      link.Draw();
-      this_thread::sleep_for(chrono::milliseconds(10));
-    }
+
 
 
   
-    cout << "Naciśnij ENTER, aby kontynuowac" << endl;
+   /*  cout << "Naciśnij ENTER, aby kontynuowac" << endl;
     cin.ignore(100000, '\n');
-    cin.ignore(100000, '\n'); 
+    cin.ignore(100000, '\n');  */
 }
+
+
+
+      
+   
