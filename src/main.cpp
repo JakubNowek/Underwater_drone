@@ -39,6 +39,7 @@ int main()
     link.SetRangeY(-70, 300);
     link.SetRangeZ(-300, 70);
     link.SetRotationXZ(60,15);
+    link.SetScaleXZ(1.5,1);
     double change = 0; //kat podany przez uzytkownika
     constexpr int FramesInTranslation = 120;//liczba kltek w animacji przesuniecia
     constexpr int FramesInRotation = 120;//liczba klatek w animacji obrotu
@@ -51,20 +52,17 @@ int main()
     link.SetDrawingMode(PzG::DM_3D);
     // a tutaj sobie przesuwamy, zeby zaczac w sensownym miejscu (nie na dnie i nie przy powierzchni)
     RotationMatrix m(-45 +change,'z');
-/*     translation[0] = 50;
+    translation[0] = 50;
     translation[1] = 50;
-    translation[2] = 0;   */
-    translation[0] = 0;
-    translation[1] = 0;
-    translation[2] = 0;  
+    translation[2] = 0;   
     cuboid.translate(translation);
 //rozmieszczanie srob   
-    test[0] = 0;
-    test[1] = 7;
+    test[0] = 50;
+    test[1] = 57;
     test[2] = 7;
     lpropeller.translate(test);
-    test[0] = 0;
-    test[1] = -7;
+    test[0] = 50;
+    test[1] = 43;
     test[2] = 7;
     rpropeller.translate(test);
 
@@ -97,6 +95,8 @@ int main()
                       for (int i = 0;i<FramesInRotation; i++)
                       {
                         cuboid.Anim_Rotation(change,FramesInRotation,kDroneFile);
+                        lpropeller.Anim_Rotation(change,FramesInRotation,kLPropellerFile);
+                        rpropeller.Anim_Rotation(change,FramesInRotation,kRPropellerFile);
                         link.Draw();
                         this_thread::sleep_for(chrono::milliseconds(15));
                       }
@@ -116,6 +116,8 @@ int main()
                       for (int i = 0;i<FramesInTranslation; i++)
                       {
                         cuboid.Anim_Move(translation,FramesInTranslation,kDroneFile);
+                        lpropeller.Anim_Move(translation,FramesInTranslation,kLPropellerFile);
+                        rpropeller.Anim_Move(translation,FramesInTranslation,kRPropellerFile);
                         link.Draw();
                         this_thread::sleep_for(chrono::milliseconds(10));
                       } 
