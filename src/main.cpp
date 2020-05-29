@@ -35,7 +35,7 @@ int main()
     link.SetRangeY(-70, 300);
     link.SetRangeZ(-300, 70);
     link.SetRotationXZ(60,15);
-    double ANG = 0; //kat podany przez uzytkownika
+    double change = 0; //kat podany przez uzytkownika
     constexpr int FramesInTranslation = 120;//liczba kltek w animacji przesuniecia
     constexpr int FramesInRotation = 120;//liczba klatek w animacji obrotu
     link.Init();
@@ -44,7 +44,7 @@ int main()
     link.AddFilename(kWaterFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.SetDrawingMode(PzG::DM_3D);
     // a tutaj sobie przesuwamy, zeby zaczac w sensownym miejscu (nie na dnie i nie przy powierzchni)
-    RotationMatrix m(-45 +ANG);
+    RotationMatrix m(-45 +change);
     translation[0] = 50;
     translation[1] = 50;
     translation[2] = 0; 
@@ -66,33 +66,36 @@ cout << "Witaj kierowco drona!\n";
         cout << "Twoj wybor: ";
         cin >> choice;
         cout << "\nWybrales opcje \n"<<choice[0];
-
+        
         switch (choice[0]) 
         {   
-            case '1': cout<<"podaj kat:  ";
-                      cin>>ANG;
-                      cout<<endl;
-                      m = m.AddAngle(-45+ANG);
+            case '1': cout << "Aktualny kat obrotu drona : "<<cuboid.Angle() << endl;
+                      cout << "podaj kat:  ";
+                      cin >>change;
+                      cout << endl;
+                      //m = m.AddAngle(-45+change);
                       //obracanie drona w animacji//
                       for (int i = 0;i<FramesInRotation; i++)
                       {
-                        cuboid.Anim_Rotation(ANG,FramesInRotation,kDroneFile);
+                        cuboid.Anim_Rotation(change,FramesInRotation,kDroneFile);
                         link.Draw();
                         this_thread::sleep_for(chrono::milliseconds(15));
                       }
                       FLAGA +=1;
-                      ; break;     
-            case '2': cout<<"podaj odleglosc :  ";
-                      cin>>distance;
+                      cout << "Aktualny kat obrotu drona : "<<cuboid.Angle() << endl;
+                       break;     
+            case '2': cout << "Aktualny kat obrotu drona : "<<cuboid.Angle() << endl;
+                      cout << "podaj odleglosc :  ";
+                      cin >> distance;
                       cout<<endl;
-                      cout<<"podaj kat :  ";
-                      cin>>movementAngle;
-                      cout<<endl;
+                      cout << "podaj kat :  ";
+                      cin >> movementAngle;
+                      cout << endl;
                       translation[0] = distance*sqrt(2)/2;
                       translation[1] = distance*sqrt(2)/2;
                       translation[2] = distance*tan(movementAngle*M_PI/180); 
                       //translacja w animacji//
-                      m = m.AddAngle(-45+ANG*FLAGA);
+                      m = m.AddAngle(-45+cuboid.Angle());
                       translation = m*translation;   
                       for (int i = 0;i<FramesInTranslation; i++)
                       {
