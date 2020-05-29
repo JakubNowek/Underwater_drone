@@ -31,8 +31,4 @@ public:
     }
     double& GetAngle()  {return angle;} //tak pozyskujemy kat, zeby go zmienic
     double const Angle() {return angle;} //tak zyskujemy podglad na wartosc kata     
-    //nwm czy se przyda wiec zakomentowalem
-   /*  Vector3D operator [] (unsigned int Ind) const { return points[Ind]; }
-    Vector3D  &operator [] (unsigned int Ind)       { return points[Ind]; } */
-   /*  void CollisionWaterBottom(Cuboid const cuboid ,Water const water, Bottom const bottom); */
 };

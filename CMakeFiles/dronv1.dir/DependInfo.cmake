@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/jakub/zad-5/src/Bottom.cpp" "/home/jakub/zad-5/CMakeFiles/dronv1.dir/src/Bottom.cpp.o"
+  "/home/jakub/zad-5/src/Propeller.cpp" "/home/jakub/zad-5/CMakeFiles/dronv1.dir/src/Propeller.cpp.o"
   "/home/jakub/zad-5/src/RotationMatrix.cpp" "/home/jakub/zad-5/CMakeFiles/dronv1.dir/src/RotationMatrix.cpp.o"
   "/home/jakub/zad-5/src/Surface.cpp" "/home/jakub/zad-5/CMakeFiles/dronv1.dir/src/Surface.cpp.o"
   "/home/jakub/zad-5/src/Water.cpp" "/home/jakub/zad-5/CMakeFiles/dronv1.dir/src/Water.cpp.o"

@@ -9,6 +9,15 @@ CMakeFiles/dronv1.dir/src/Bottom.cpp.o: inc/SWektor.hh
 CMakeFiles/dronv1.dir/src/Bottom.cpp.o: inc/Surface.hh
 CMakeFiles/dronv1.dir/src/Bottom.cpp.o: inc/rozmiar.hh
 
+CMakeFiles/dronv1.dir/src/Propeller.cpp.o: src/Propeller.cpp
+CMakeFiles/dronv1.dir/src/Propeller.cpp.o: inc/Propeller.hh
+CMakeFiles/dronv1.dir/src/Propeller.cpp.o: inc/RotationMatrix.hh
+CMakeFiles/dronv1.dir/src/Propeller.cpp.o: inc/SMacierz.hh
+CMakeFiles/dronv1.dir/src/Propeller.cpp.o: inc/SWektor.hh
+CMakeFiles/dronv1.dir/src/Propeller.cpp.o: inc/Surface.hh
+CMakeFiles/dronv1.dir/src/Propeller.cpp.o: inc/cuboid.hh
+CMakeFiles/dronv1.dir/src/Propeller.cpp.o: inc/rozmiar.hh
+
 CMakeFiles/dronv1.dir/src/RotationMatrix.cpp.o: src/RotationMatrix.cpp
 CMakeFiles/dronv1.dir/src/RotationMatrix.cpp.o: inc/RotationMatrix.hh
 CMakeFiles/dronv1.dir/src/RotationMatrix.cpp.o: inc/SMacierz.hh
@@ -43,6 +52,7 @@ CMakeFiles/dronv1.dir/src/gnuplot_link.cpp.o: inc/gnuplot_link.hh
 
 CMakeFiles/dronv1.dir/src/main.cpp.o: src/main.cpp
 CMakeFiles/dronv1.dir/src/main.cpp.o: inc/Bottom.hh
+CMakeFiles/dronv1.dir/src/main.cpp.o: inc/Propeller.hh
 CMakeFiles/dronv1.dir/src/main.cpp.o: inc/RotationMatrix.hh
 CMakeFiles/dronv1.dir/src/main.cpp.o: inc/SMacierz.hh
 CMakeFiles/dronv1.dir/src/main.cpp.o: inc/SWektor.hh

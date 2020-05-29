@@ -18,6 +18,10 @@ RotationMatrix.hh
 cmath
 -
 
+/home/jakub/zad-5/src/Propeller.cpp
+Propeller.hh
+/home/jakub/zad-5/src/Propeller.hh
+
 /home/jakub/zad-5/src/RotationMatrix.cpp
 RotationMatrix.hh
 /home/jakub/zad-5/src/RotationMatrix.hh
@@ -91,6 +95,8 @@ Bottom.hh
 /home/jakub/zad-5/src/Bottom.hh
 Water.hh
 /home/jakub/zad-5/src/Water.hh
+Propeller.hh
+/home/jakub/zad-5/src/Propeller.hh
 RotationMatrix.hh
 /home/jakub/zad-5/src/RotationMatrix.hh
 chrono
@@ -101,6 +107,10 @@ thread
 inc/Bottom.hh
 Surface.hh
 inc/Surface.hh
+
+inc/Propeller.hh
+cuboid.hh
+inc/cuboid.hh
 
 inc/RotationMatrix.hh
 SMacierz.hh

@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/dronv1.dir/src/Bottom.cpp.o"
+  "CMakeFiles/dronv1.dir/src/Propeller.cpp.o"
   "CMakeFiles/dronv1.dir/src/RotationMatrix.cpp.o"
   "CMakeFiles/dronv1.dir/src/Surface.cpp.o"
   "CMakeFiles/dronv1.dir/src/Water.cpp.o"

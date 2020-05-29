@@ -8,7 +8,7 @@
 #include "cuboid.hh"
 #include "Bottom.hh"
 #include "Water.hh"
-
+#include "Propeller.hh"
 #include "RotationMatrix.hh"
 
 #include <chrono> //te dwie biblioteki sa od opznienia w animacji
@@ -22,9 +22,13 @@ const string kDroneFile("solid/drone.dat");
 const string kModelFile("solid/model.dat");
 const string kBottomFile("solid/bottom.dat");
 const string kWaterFile("solid/water.dat");
+const string kPrismFile("solid/granx.dat");
+const string kLPropellerFile("solid/Lpropeller.dat");
+const string kRPropellerFile("solid/Rpropeller.dat");
 int main()
 {
     Cuboid cuboid(kModelFile);  
+    Propeller lpropeller(kPrismFile);////na razie jeden aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     Bottom bottom(kBottomFile);
     Water water(kWaterFile);
     Vector3D translation; //wektor translacji
@@ -42,6 +46,7 @@ int main()
     link.AddFilename(kDroneFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.AddFilename(kBottomFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.AddFilename(kWaterFile.c_str(), PzG::LS_CONTINUOUS, 1);
+    link.AddFilename(kLPropellerFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.SetDrawingMode(PzG::DM_3D);
     // a tutaj sobie przesuwamy, zeby zaczac w sensownym miejscu (nie na dnie i nie przy powierzchni)
     RotationMatrix m(-45 +change);
@@ -49,10 +54,12 @@ int main()
     translation[1] = 50;
     translation[2] = 0; 
     cuboid.translate(translation);
+    lpropeller.translate(translation);
     //tu sie zaczyna rysowanie
     bottom.draw(kBottomFile);
     cuboid.draw(kDroneFile);
     water.draw(kWaterFile);
+    lpropeller.draw(kLPropellerFile);
     link.Draw(); 
 cout << endl << endl << "Witaj kierowco drona!" << endl;
 /* std::vector<Vector3D> TEST;
