@@ -14,6 +14,14 @@ using namespace std;
 #define WATER_LEVEL   -5        //wysokosc na ktorej znajduje sie powierzchnia wody
          
 
+
+Water::Water(std::string filename) : Surface(filename)
+{
+    level = WATER_LEVEL;
+}
+
+
+
 /**
  * @brief  przeciazenie metody odopwiadajacej za stworzenie powierzchni, robi to umieszczajac w podanym pliku kolejne wspolrzedne punktow powierzchni
  * 

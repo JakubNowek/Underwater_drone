@@ -14,6 +14,13 @@ using namespace std;
 #define BOTTOM_UNIT_WIDTH_Y   25 //szerokosc y elementu siatki
 #define DEPTH_Z   -300           //glebokosc na ktorej znajduje sie dno
 
+
+Bottom::Bottom(std::string filename) : Surface(filename)
+{
+    level = DEPTH_Z;
+}
+
+
 /**
  * @brief przeciazenie metody odopwiadajacej za stworzenie dna, robi to umieszczajac w podanym pliku kolejne wspolrzedne punktow dna
  * 

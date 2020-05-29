@@ -8,8 +8,8 @@
  */
 class Water : public Surface
 {
-
+    double level;
     public:
-    Water(const std::string filename) : Surface(filename) { } //konstruktor parametryczny
+    Water(const std::string filename); //konstruktor parametryczny
     void draw(std::string filename) const;
 };

@@ -9,8 +9,8 @@
  */
 class Bottom : public Surface
 {
-
+    double level;
     public:
-    Bottom(const std::string filename) : Surface(filename) { } //konstruktor parametryczny 
+    Bottom(const std::string filename);//konstruktor parametryczny 
     void draw(std::string filename) const;
 };

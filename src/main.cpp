@@ -54,26 +54,26 @@ int main()
     cuboid.draw(kDroneFile);
     water.draw(kWaterFile);
     link.Draw(); 
-    int FLAGA = 0; //zlicza ile zostalo wykonanych operacji obrotu i przekazuje te informacje do funkcji translacji
-cout << "Witaj kierowco drona!\n";
+cout << endl << endl << "Witaj kierowco drona!" << endl;
+/* std::vector<Vector3D> TEST;
+TEST = cuboid.Test();
+cout << TEST[0][1]; */
  while (choice[0] != 'Q') 
     {   
 
-        cout << "\nCo chcesz teraz zrobic? :\n"; 
-        cout << "  1 - Obrot  \n";
-        cout << "  2 - Przemiesc sie  \n";
-        cout << "  Q - Katapulta (szybkie wysiadanie) \n";
+        cout << "\nCo chcesz teraz zrobic? :" << endl; 
+        cout << "  1 - Obrot  " << endl;
+        cout << "  2 - Przemiesc sie  " << endl;
+        cout << "  Q - Katapulta (szybkie wysiadanie) " << endl;
         cout << "Twoj wybor: ";
-        cin >> choice;
-        cout << "\nWybrales opcje \n"<<choice[0];
+        cin >> choice[0];
+        cout << endl <<"Wybrales opcje: "<<choice[0] << endl;
         
         switch (choice[0]) 
         {   
-            case '1': cout << "Aktualny kat obrotu drona : "<<cuboid.Angle() << endl;
-                      cout << "podaj kat:  ";
+            case '1': cout << "Podaj kat:  ";
                       cin >>change;
                       cout << endl;
-                      //m = m.AddAngle(-45+change);
                       //obracanie drona w animacji//
                       for (int i = 0;i<FramesInRotation; i++)
                       {
@@ -81,14 +81,11 @@ cout << "Witaj kierowco drona!\n";
                         link.Draw();
                         this_thread::sleep_for(chrono::milliseconds(15));
                       }
-                      FLAGA +=1;
-                      cout << "Aktualny kat obrotu drona : "<<cuboid.Angle() << endl;
                        break;     
-            case '2': cout << "Aktualny kat obrotu drona : "<<cuboid.Angle() << endl;
-                      cout << "podaj odleglosc :  ";
+            case '2': cout << "Podaj odleglosc :  ";
                       cin >> distance;
                       cout<<endl;
-                      cout << "podaj kat :  ";
+                      cout << "Podaj kat :  ";
                       cin >> movementAngle;
                       cout << endl;
                       translation[0] = distance*sqrt(2)/2;
@@ -103,8 +100,11 @@ cout << "Witaj kierowco drona!\n";
                         link.Draw();
                         this_thread::sleep_for(chrono::milliseconds(10));
                       } 
-            case 'Q': cout <<endl<<"Wysiadka BULWO"<<endl; break;
-            default : cout << "NIEROZPOZNANO"<<endl; break;
+            case 'Q': cout <<endl<<"Wysiadka BULWO"<<endl;
+                      cin.ignore(100000, '\n');  break;
+            
+            default : cout << "NIEROZPOZNANO"<<endl;
+                      cin.ignore(100000, '\n');  break;
         }
     } 
 
