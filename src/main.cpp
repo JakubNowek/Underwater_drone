@@ -28,10 +28,10 @@ const string kRPropellerFile("solid/Rpropeller.dat");
 int main()
 {
     Cuboid cuboid(kModelFile);  
-    Propeller lpropeller(kPrismFile);////na razie jeden aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    Propeller lpropeller(kPrismFile), rpropeller(kPrismFile);////na razie jeden aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     Bottom bottom(kBottomFile);
     Water water(kWaterFile);
-    Vector3D translation; //wektor translacji
+    Vector3D translation, test; //wektor translacji
     PzG::GnuplotLink link; // Ta zmienna jest potrzebna do wizualizacji
     double distance, movementAngle; //odleglosc i kat wznoszenia/opadania podane przez uzytkownika
     char choice[2] = " "; //tablica znakow zapisujaca wybor uzytkownika
@@ -47,25 +47,37 @@ int main()
     link.AddFilename(kBottomFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.AddFilename(kWaterFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.AddFilename(kLPropellerFile.c_str(), PzG::LS_CONTINUOUS, 1);
+    link.AddFilename(kRPropellerFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.SetDrawingMode(PzG::DM_3D);
     // a tutaj sobie przesuwamy, zeby zaczac w sensownym miejscu (nie na dnie i nie przy powierzchni)
     RotationMatrix m(-45 +change);
-    translation[0] = 50;
+/*     translation[0] = 50;
     translation[1] = 50;
-    translation[2] = 0; 
+    translation[2] = 0;   */
+    translation[0] = 0;
+    translation[1] = 0;
+    translation[2] = 0;  
     cuboid.translate(translation);
-    lpropeller.translate(translation);
+//rozmieszczanie srob   
+    test[0] = 0;
+    test[1] = 7;
+    test[2] = 7;
+    lpropeller.translate(test);
+    test[0] = 0;
+    test[1] = -7;
+    test[2] = 7;
+    rpropeller.translate(test);
+
     //tu sie zaczyna rysowanie
     bottom.draw(kBottomFile);
     cuboid.draw(kDroneFile);
     water.draw(kWaterFile);
     lpropeller.draw(kLPropellerFile);
+    rpropeller.draw(kRPropellerFile);
     link.Draw(); 
-cout << endl << endl << "Witaj kierowco drona!" << endl;
-/* std::vector<Vector3D> TEST;
-TEST = cuboid.Test();
-cout << TEST[0][1]; */
- while (choice[0] != 'Q') 
+//menu   
+    cout << endl << endl << "Witaj kierowco drona!" << endl;
+    while (choice[0] != 'Q') 
     {   
 
         cout << "\nCo chcesz teraz zrobic? :" << endl; 
