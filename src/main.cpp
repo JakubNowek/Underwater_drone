@@ -50,7 +50,7 @@ int main()
     link.AddFilename(kRPropellerFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.SetDrawingMode(PzG::DM_3D);
     // a tutaj sobie przesuwamy, zeby zaczac w sensownym miejscu (nie na dnie i nie przy powierzchni)
-    RotationMatrix m(-45 +change);
+    RotationMatrix m(-45 +change,'z');
 /*     translation[0] = 50;
     translation[1] = 50;
     translation[2] = 0;   */
@@ -111,7 +111,7 @@ int main()
                       translation[1] = distance*sqrt(2)/2;
                       translation[2] = distance*tan(movementAngle*M_PI/180); 
                       //translacja w animacji//
-                      m = m.AddAngle(-45+cuboid.Angle());
+                      m = m.AddAngle(-45+cuboid.Angle(),'z');
                       translation = m*translation;   
                       for (int i = 0;i<FramesInTranslation; i++)
                       {

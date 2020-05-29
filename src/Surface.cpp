@@ -61,7 +61,7 @@ void Surface::draw(std::string filename) const
         return;
     }
 
-    RotationMatrix Rotz(angle);
+    RotationMatrix Rotz(angle,'z');
     for(unsigned i = 0; i < points.size(); ++i)
     {
         outputFile << Rotz * points[i] + translation << endl;

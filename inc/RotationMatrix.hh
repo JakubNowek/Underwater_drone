@@ -8,8 +8,8 @@ class RotationMatrix : public SMacierz<double,3>
 {
     public:
     
-    RotationMatrix(double angle);
-    RotationMatrix AddAngle(double angle);
+    RotationMatrix(double angle, char os);
+    RotationMatrix AddAngle(double angle, char os);
 };
  
 //zrobie jak bedzie na czas, na razie po neandertalsku mam w cuboidzie
