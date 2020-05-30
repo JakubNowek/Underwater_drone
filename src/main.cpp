@@ -58,12 +58,12 @@ int main()
     cuboid.translate(translation);
 //rozmieszczanie srob   
     test[0] = 50;
-    test[1] = 57;
+    test[1] = 50;
     test[2] = 7;
     lpropeller.translate(test);
     test[0] = 50;
-    test[1] = 43;
-    test[2] = 7;
+    test[1] = 50;
+    test[2] = 30;
     rpropeller.translate(test);
 
     //tu sie zaczyna rysowanie
