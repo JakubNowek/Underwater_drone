@@ -30,5 +30,5 @@ public:
         angle = angle + change;
     }
     double& GetAngle()  {return angle;} //tak pozyskujemy kat, zeby go zmienic
-    double const Angle() {return angle;} //tak zyskujemy podglad na wartosc kata     
+    double const Angle() {return angle;} //tak zyskujemy podglad na wartosc kata  
 };

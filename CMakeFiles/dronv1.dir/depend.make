@@ -9,13 +9,9 @@ CMakeFiles/dronv1.dir/src/Bottom.cpp.o: inc/SWektor.hh
 CMakeFiles/dronv1.dir/src/Bottom.cpp.o: inc/Surface.hh
 CMakeFiles/dronv1.dir/src/Bottom.cpp.o: inc/rozmiar.hh
 
+CMakeFiles/dronv1.dir/src/Drone.cpp.o: src/Drone.cpp
+
 CMakeFiles/dronv1.dir/src/Obstacle.cpp.o: src/Obstacle.cpp
-CMakeFiles/dronv1.dir/src/Obstacle.cpp.o: inc/Obstacle.hh
-CMakeFiles/dronv1.dir/src/Obstacle.cpp.o: inc/RotationMatrix.hh
-CMakeFiles/dronv1.dir/src/Obstacle.cpp.o: inc/SMacierz.hh
-CMakeFiles/dronv1.dir/src/Obstacle.cpp.o: inc/SWektor.hh
-CMakeFiles/dronv1.dir/src/Obstacle.cpp.o: inc/Surface.hh
-CMakeFiles/dronv1.dir/src/Obstacle.cpp.o: inc/rozmiar.hh
 
 CMakeFiles/dronv1.dir/src/Propeller.cpp.o: src/Propeller.cpp
 CMakeFiles/dronv1.dir/src/Propeller.cpp.o: inc/Propeller.hh
@@ -40,11 +36,13 @@ CMakeFiles/dronv1.dir/src/Surface.cpp.o: inc/Surface.hh
 CMakeFiles/dronv1.dir/src/Surface.cpp.o: inc/rozmiar.hh
 
 CMakeFiles/dronv1.dir/src/Water.cpp.o: src/Water.cpp
+CMakeFiles/dronv1.dir/src/Water.cpp.o: inc/Propeller.hh
 CMakeFiles/dronv1.dir/src/Water.cpp.o: inc/RotationMatrix.hh
 CMakeFiles/dronv1.dir/src/Water.cpp.o: inc/SMacierz.hh
 CMakeFiles/dronv1.dir/src/Water.cpp.o: inc/SWektor.hh
 CMakeFiles/dronv1.dir/src/Water.cpp.o: inc/Surface.hh
 CMakeFiles/dronv1.dir/src/Water.cpp.o: inc/Water.hh
+CMakeFiles/dronv1.dir/src/Water.cpp.o: inc/cuboid.hh
 CMakeFiles/dronv1.dir/src/Water.cpp.o: inc/rozmiar.hh
 
 CMakeFiles/dronv1.dir/src/cuboid.cpp.o: src/cuboid.cpp
@@ -60,6 +58,7 @@ CMakeFiles/dronv1.dir/src/gnuplot_link.cpp.o: inc/gnuplot_link.hh
 
 CMakeFiles/dronv1.dir/src/main.cpp.o: src/main.cpp
 CMakeFiles/dronv1.dir/src/main.cpp.o: inc/Bottom.hh
+CMakeFiles/dronv1.dir/src/main.cpp.o: inc/Drone.hh
 CMakeFiles/dronv1.dir/src/main.cpp.o: inc/Obstacle.hh
 CMakeFiles/dronv1.dir/src/main.cpp.o: inc/Propeller.hh
 CMakeFiles/dronv1.dir/src/main.cpp.o: inc/RotationMatrix.hh

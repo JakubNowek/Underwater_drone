@@ -17,5 +17,6 @@ class Cuboid : public Surface
     void Anim_Rotation(double angle, double frames,const std::string filename);
     void Anim_Move(Vector3D translation, double frames,const std::string filename);
     /* std::vector<Vector3D>& Test() {return points;}  */
+    int WBcollision(double wl, double bl);
 };
 

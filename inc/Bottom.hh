@@ -13,4 +13,5 @@ class Bottom : public Surface
     public:
     Bottom(const std::string filename);//konstruktor parametryczny 
     void draw(std::string filename) const;
+    double const getLevel() {return level;} 
 };

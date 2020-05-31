@@ -18,9 +18,9 @@ RotationMatrix.hh
 cmath
 -
 
+/home/jakub/zad-5/src/Drone.cpp
+
 /home/jakub/zad-5/src/Obstacle.cpp
-Obstacle.hh
-/home/jakub/zad-5/src/Obstacle.hh
 fstream
 -
 iostream
@@ -119,6 +119,8 @@ RotationMatrix.hh
 /home/jakub/zad-5/src/RotationMatrix.hh
 Obstacle.hh
 /home/jakub/zad-5/src/Obstacle.hh
+Drone.hh
+/home/jakub/zad-5/src/Drone.hh
 chrono
 -
 thread
@@ -127,6 +129,12 @@ thread
 inc/Bottom.hh
 Surface.hh
 inc/Surface.hh
+
+inc/Drone.hh
+cuboid.hh
+inc/cuboid.hh
+Propeller.hh
+inc/Propeller.hh
 
 inc/Obstacle.hh
 Surface.hh
@@ -173,6 +181,10 @@ inc/RotationMatrix.hh
 inc/Water.hh
 Surface.hh
 inc/Surface.hh
+cuboid.hh
+inc/cuboid.hh
+Propeller.hh
+inc/Propeller.hh
 
 inc/cuboid.hh
 Surface.hh

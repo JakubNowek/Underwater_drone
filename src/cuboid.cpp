@@ -34,3 +34,22 @@ void Cuboid::Anim_Move(Vector3D translation, double frames,const std::string fil
       this->translate(temp); // a tutaj sobie przesuwamy
       this->draw(filename);
 }
+
+int Cuboid::WBcollision(double wl, double bl)
+{
+   for(unsigned int i = 0;i<points.size(); ++i )
+   {
+      if(points[i][2] == wl)
+      {
+            std::cout<< "Wyplynales ponad powierzchnie, dalszy ruch niemozliwy, opuszczaie drona" <<std::endl;
+            /* exit(0); */
+            return 1;
+      }
+      else if(points[i][2] == bl)
+      {
+            std::cout<< "Nastapilo zderzenie z dnem, krytyczne uszkodzenia, dalszy ruch niemozliwy, opuszczaie drona" <<std::endl;
+            /* exit(0); */
+            return 1;
+      }
+   }   
+}

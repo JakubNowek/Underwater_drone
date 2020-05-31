@@ -11,6 +11,7 @@
 #include "Propeller.hh"
 #include "RotationMatrix.hh"
 #include "Obstacle.hh"
+#include "Drone.hh"
 
 #include <chrono> //te dwie biblioteki sa od opznienia w animacji
 #include <thread> 
@@ -34,7 +35,7 @@ const string kObs3File("solid/obstacles/cube.dat");
 int main()
 {
     Cuboid cuboid(kModelFile);  
-    Propeller lpropeller(kPrismFile), rpropeller(kPrismFile);////na razie jeden aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    Propeller lpropeller(kPrismFile), rpropeller(kPrismFile);
     Bottom bottom(kBottomFile);
     Water water(kWaterFile);
     //lista shared pointerow
@@ -45,6 +46,7 @@ int main()
     Vector3D translation, test; //wektor translacji
     PzG::GnuplotLink link; // Ta zmienna jest potrzebna do wizualizacji
     double distance, movementAngle; //odleglosc i kat wznoszenia/opadania podane przez uzytkownika
+    int collision = 0;
     char choice[2] = " "; //tablica znakow zapisujaca wybor uzytkownika
     link.SetRangeX(-70, 300);
     link.SetRangeY(-70, 300);
@@ -82,25 +84,27 @@ int main()
     lpropeller.SetDifference(15,0,0);
     rpropeller.SetDifference(15,0,0);
 
-    //tu sie zaczyna rysowanie
+//tu sie zaczyna rysowanie
+/*  ptr1->draw(kObs1File);
+    ptr2->draw(kObs2File);
+    ptr3->draw(kObs3File); */
     bottom.draw(kBottomFile);
     water.draw(kWaterFile);
     cuboid.draw(kDroneFile);
-/*     ptr1->draw(kObs1File);
-    ptr2->draw(kObs2File);
-    ptr3->draw(kObs3File); */
+
     lpropeller.draw(kLPropellerFile);
-    rpropeller.draw(kRPropellerFile);
+    rpropeller.draw(kRPropellerFile); 
+
     link.Draw(); 
 //menu   
     cout << endl << endl << "Witaj kierowco drona!" << endl;
-    while (choice[0] != 'q') 
+    while (choice[0] != '0') 
     {   
 
         cout << "\nCo chcesz teraz zrobic? :" << endl; 
         cout << "  1 - Obrot  " << endl;
         cout << "  2 - Przemiesc sie  " << endl;
-        cout << "  q - Katapulta (szybkie wysiadanie) " << endl;
+        cout << "  0 - Katapulta (szybkie wysiadanie) " << endl;
         cout << "Twoj wybor: ";
         cin >> choice[0];
         cout << endl <<"Wybrales opcje: "<<choice[0] << endl;
@@ -139,17 +143,20 @@ int main()
                       translation = m*translation;   
                       for (int i = 0;i<FramesInTranslation; i++)
                       {
+                        collision -= cuboid.WBcollision(water.getLevel(),bottom.getLevel());
                         cuboid.Anim_Move(translation,FramesInTranslation,kDroneFile);
+                        collision -=lpropeller.WBcollision(water.getLevel(),bottom.getLevel());
                         lpropeller.Anim_Move(translation,distance*3.6,FramesInTranslation,kLPropellerFile);
+                        collision -=rpropeller.WBcollision(water.getLevel(),bottom.getLevel());
                         rpropeller.Anim_Move(translation,distance*3.6,FramesInTranslation,kRPropellerFile);
-                        link.Draw();
+                        if (collision>=0) link.Draw();
                         this_thread::sleep_for(chrono::milliseconds(10));
                       } 
-            case 'q': cout <<endl<<"Wysiadka BULWO"<<endl;
-                      cin.ignore(100000, '\n');  break;
+            case '0':  cout <<endl<<"Wysiadanie"<<endl;
+                       cin.ignore(100000, '\n');   break;
             
             default : cout << "NIEROZPOZNANO"<<endl;
-                      cin.ignore(100000, '\n');  break;
+                      break;
         }
     } 
 

@@ -9,14 +9,10 @@ CMakeFiles/dronv1.dir/src/Bottom.cpp.o
  inc/SWektor.hh
  inc/Surface.hh
  inc/rozmiar.hh
+CMakeFiles/dronv1.dir/src/Drone.cpp.o
+ /home/jakub/zad-5/src/Drone.cpp
 CMakeFiles/dronv1.dir/src/Obstacle.cpp.o
  /home/jakub/zad-5/src/Obstacle.cpp
- inc/Obstacle.hh
- inc/RotationMatrix.hh
- inc/SMacierz.hh
- inc/SWektor.hh
- inc/Surface.hh
- inc/rozmiar.hh
 CMakeFiles/dronv1.dir/src/Propeller.cpp.o
  /home/jakub/zad-5/src/Propeller.cpp
  inc/Propeller.hh
@@ -41,11 +37,13 @@ CMakeFiles/dronv1.dir/src/Surface.cpp.o
  inc/rozmiar.hh
 CMakeFiles/dronv1.dir/src/Water.cpp.o
  /home/jakub/zad-5/src/Water.cpp
+ inc/Propeller.hh
  inc/RotationMatrix.hh
  inc/SMacierz.hh
  inc/SWektor.hh
  inc/Surface.hh
  inc/Water.hh
+ inc/cuboid.hh
  inc/rozmiar.hh
 CMakeFiles/dronv1.dir/src/cuboid.cpp.o
  /home/jakub/zad-5/src/cuboid.cpp
@@ -61,6 +59,7 @@ CMakeFiles/dronv1.dir/src/gnuplot_link.cpp.o
 CMakeFiles/dronv1.dir/src/main.cpp.o
  /home/jakub/zad-5/src/main.cpp
  inc/Bottom.hh
+ inc/Drone.hh
  inc/Obstacle.hh
  inc/Propeller.hh
  inc/RotationMatrix.hh
