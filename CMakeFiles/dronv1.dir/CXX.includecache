@@ -21,6 +21,14 @@ cmath
 /home/jakub/zad-5/src/Propeller.cpp
 Propeller.hh
 /home/jakub/zad-5/src/Propeller.hh
+fstream
+-
+iostream
+-
+RotationMatrix.hh
+/home/jakub/zad-5/src/RotationMatrix.hh
+cmath
+-
 
 /home/jakub/zad-5/src/RotationMatrix.cpp
 RotationMatrix.hh

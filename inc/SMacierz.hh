@@ -48,7 +48,7 @@ class SMacierz {
    /* przeciazenie operatora* dla macierzy
    * [in] - macierze ktore chcemy wymnozyc
    * [out] - macierz wynikowa*/
-  SMacierz<STyp,SWymiar> operator* (const SMacierz<STyp,SWymiar>& B) const;
+  SMacierz<STyp,SWymiar> operator* ( SMacierz<STyp,SWymiar>& B) ;
 
 	/* mnozenie macierz*wektor */
 	SWektor<STyp,SWymiar> operator* (const SWektor<STyp,SWymiar>& B) const;
@@ -158,7 +158,7 @@ SMacierz<STyp,SWymiar> SMacierz<STyp,SWymiar>::ZamienKolumny(int IndK1, SWektor<
    * [in] - macierze ktore chcemy wymnozyc
    * [out] - macierz wynikowa*/
 template <typename STyp, int SWymiar>
-SMacierz<STyp,SWymiar> SMacierz<STyp,SWymiar>::operator*( const SMacierz<STyp,SWymiar>& B) const
+SMacierz<STyp,SWymiar> SMacierz<STyp,SWymiar>::operator*( SMacierz<STyp,SWymiar>& B)
 {  
     SMacierz<STyp,SWymiar> Pom;
     Pom = (*this).Transpozycja();

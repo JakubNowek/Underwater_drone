@@ -39,7 +39,7 @@ int main()
     link.SetRangeY(-70, 300);
     link.SetRangeZ(-300, 70);
     link.SetRotationXZ(60,15);
-    link.SetScaleXZ(1.5,1);
+    link.SetScaleXZ(2,1);
     double change = 0; //kat podany przez uzytkownika
     constexpr int FramesInTranslation = 120;//liczba kltek w animacji przesuniecia
     constexpr int FramesInRotation = 120;//liczba klatek w animacji obrotu
@@ -57,15 +57,22 @@ int main()
     translation[2] = 0;   
     cuboid.translate(translation);
 //rozmieszczanie srob   
-    test[0] = 50;
+    /* test[0] = 35;
     test[1] = 50;
-    test[2] = 7;
+    test[2] = -293;
     lpropeller.translate(test);
-    test[0] = 50;
+    test[0] = 35;
     test[1] = 50;
-    test[2] = 30;
-    rpropeller.translate(test);
-
+    test[2] = -270;
+    rpropeller.translate(test); */
+    /* test[0] = 15;
+    test[1] = 0;
+    test[2] = 300;
+    lpropeller.translate(test);
+    test[0] = 15;
+    test[1] = 0;
+    test[2] = 300;
+    rpropeller.translate(test); */
     //tu sie zaczyna rysowanie
     bottom.draw(kBottomFile);
     cuboid.draw(kDroneFile);
@@ -75,13 +82,13 @@ int main()
     link.Draw(); 
 //menu   
     cout << endl << endl << "Witaj kierowco drona!" << endl;
-    while (choice[0] != 'Q') 
+    while (choice[0] != 'q') 
     {   
 
         cout << "\nCo chcesz teraz zrobic? :" << endl; 
         cout << "  1 - Obrot  " << endl;
         cout << "  2 - Przemiesc sie  " << endl;
-        cout << "  Q - Katapulta (szybkie wysiadanie) " << endl;
+        cout << "  q - Katapulta (szybkie wysiadanie) " << endl;
         cout << "Twoj wybor: ";
         cin >> choice[0];
         cout << endl <<"Wybrales opcje: "<<choice[0] << endl;
@@ -91,6 +98,7 @@ int main()
             case '1': cout << "Podaj kat:  ";
                       cin >>change;
                       cout << endl;
+                      cout <<"Aktualny kat obrotu    "<<lpropeller.AngleXY()<<endl;
                       //obracanie drona w animacji//
                       for (int i = 0;i<FramesInRotation; i++)
                       {
@@ -121,7 +129,7 @@ int main()
                         link.Draw();
                         this_thread::sleep_for(chrono::milliseconds(10));
                       } 
-            case 'Q': cout <<endl<<"Wysiadka BULWO"<<endl;
+            case 'q': cout <<endl<<"Wysiadka BULWO"<<endl;
                       cin.ignore(100000, '\n');  break;
             
             default : cout << "NIEROZPOZNANO"<<endl;

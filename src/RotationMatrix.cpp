@@ -58,7 +58,7 @@ RotationMatrix :: RotationMatrix(double angle,char os)
 RotationMatrix RotationMatrix::AddAngle(double angle, char os)
 {
     RotationMatrix Rot(angle,os);  //macierz pomocnicza
-    double angleRad;
+    /* double angleRad;
     angleRad = angle*M_PI/180;
     Rot._Kolumna[0][0] = cos(angleRad);
     Rot._Kolumna[0][1] = -sin(angleRad);
@@ -69,7 +69,7 @@ RotationMatrix RotationMatrix::AddAngle(double angle, char os)
     Rot._Kolumna[2][0] = 0;
     Rot._Kolumna[2][1] = 0;
     Rot._Kolumna[2][2] = 1;
-
+ */
     return Rot;
 
 }
