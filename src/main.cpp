@@ -39,14 +39,14 @@ int main()
     link.SetRangeY(-70, 300);
     link.SetRangeZ(-300, 70);
     link.SetRotationXZ(60,15);
-    link.SetScaleXZ(2,1);
+    link.SetScaleXZ(1.5,1);
     double change = 0; //kat podany przez uzytkownika
     constexpr int FramesInTranslation = 120;//liczba kltek w animacji przesuniecia
     constexpr int FramesInRotation = 120;//liczba klatek w animacji obrotu
     link.Init();
     link.AddFilename(kDroneFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.AddFilename(kBottomFile.c_str(), PzG::LS_CONTINUOUS, 1);
-    link.AddFilename(kWaterFile.c_str(), PzG::LS_CONTINUOUS, 1);
+    //link.AddFilename(kWaterFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.AddFilename(kLPropellerFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.AddFilename(kRPropellerFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.SetDrawingMode(PzG::DM_3D);
@@ -56,22 +56,22 @@ int main()
     translation[1] = 50;
     translation[2] = 0;   
     cuboid.translate(translation);
-//rozmieszczanie srob   
-    /* test[0] = 35;
+//rozmieszczanie srob tak ma byc  
+    test[0] = 35;
     test[1] = 50;
-    test[2] = -293;
+    test[2] = -284.34;
     lpropeller.translate(test);
     test[0] = 35;
     test[1] = 50;
-    test[2] = -270;
-    rpropeller.translate(test); */
-    /* test[0] = 15;
+    test[2] = -261.34;
+    rpropeller.translate(test); 
+    /* test[0] = 0;
     test[1] = 0;
-    test[2] = 300;
+    test[2] = 0;
     lpropeller.translate(test);
-    test[0] = 15;
+    test[0] = 0;
     test[1] = 0;
-    test[2] = 300;
+    test[2] = 00;
     rpropeller.translate(test); */
     //tu sie zaczyna rysowanie
     bottom.draw(kBottomFile);

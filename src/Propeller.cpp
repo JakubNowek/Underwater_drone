@@ -19,11 +19,11 @@ void Propeller::draw(std::string filename) const
     }
 
     RotationMatrix Rotz(angle,'z'), Rotx(angleXY,'x'), Roty(angleXY,'y') ;
-    SMacierz<double,3> ROT;
-    ROT = Rotz*Rotx*Roty;
+    //SMacierz<double,3> ROT;
+    //ROT = Rotz*Rotx*Roty;
     for(unsigned i = 0; i < points.size(); ++i)
     {
-        outputFile << Roty * points[i] + translation  << endl;
+        outputFile << Rotx* points[i] + translation  << endl;
         if(i % 4 == 3) // triggers after every 4 points
         {
             outputFile << "#\n\n";
@@ -34,7 +34,7 @@ void Propeller::draw(std::string filename) const
 void Propeller::Anim_Rotation( double angle, double frames, const std::string filename)
 {
       auto temp1 = angle/frames;
-      auto temp2 = 50/frames;
+      auto temp2 = 90/frames;
       cout << "AngleXY  " <<temp1<<endl;
       this->rotate(temp1);
       this->rotateXY(temp2);
