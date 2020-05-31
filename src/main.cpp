@@ -120,12 +120,16 @@ int main()
                       translation[2] = distance*tan(movementAngle*M_PI/180); 
                       //translacja w animacji//
                       m = m.AddAngle(-45+cuboid.Angle(),'z');
+                      ///////////////////////////////////////////////test
+                      lpropeller.GetAngleXY() = -45+cuboid.Angle();
+                      rpropeller.GetAngleXY() = -45+cuboid.Angle();
+                      ///////////////////////////////////////////////koniec testu
                       translation = m*translation;   
                       for (int i = 0;i<FramesInTranslation; i++)
                       {
                         cuboid.Anim_Move(translation,FramesInTranslation,kDroneFile);
-                        lpropeller.Anim_Move(translation,FramesInTranslation,kLPropellerFile);
-                        rpropeller.Anim_Move(translation,FramesInTranslation,kRPropellerFile);
+                        lpropeller.Anim_Move(translation,distance*3.6,FramesInTranslation,kLPropellerFile);
+                        rpropeller.Anim_Move(translation,distance*3.6,FramesInTranslation,kRPropellerFile);
                         link.Draw();
                         this_thread::sleep_for(chrono::milliseconds(10));
                       } 

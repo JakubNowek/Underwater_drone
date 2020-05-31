@@ -18,7 +18,7 @@ void Propeller::draw(std::string filename) const
         return;
     }
 
-    RotationMatrix Rotz(angle,'z'), Rotx(angleXY,'x'), Roty(angleXY,'y') ;
+    RotationMatrix Rotz(angle,'z'), Rotx(angleXY,'x'), Roty(90-angleXY,'y') ;
     //SMacierz<double,3> ROT;
     //ROT = Rotz*Rotx*Roty;
     for(unsigned i = 0; i < points.size(); ++i)
@@ -34,9 +34,19 @@ void Propeller::draw(std::string filename) const
 void Propeller::Anim_Rotation( double angle, double frames, const std::string filename)
 {
       auto temp1 = angle/frames;
-      auto temp2 = 90/frames;
+      auto temp2 = 360/frames;
       cout << "AngleXY  " <<temp1<<endl;
       this->rotate(temp1);
       this->rotateXY(temp2);
+      this->draw(filename);
+}
+
+void Propeller::Anim_Move(Vector3D translation,double velocity, double frames,const std::string filename)
+{     
+
+      auto temp1 = translation / frames;
+      auto temp2 = velocity/frames;
+      this->rotateXY(temp2);
+      this->translate(temp1); // a tutaj sobie przesuwamy
       this->draw(filename);
 }

@@ -9,7 +9,7 @@ class Propeller : public Cuboid
     Propeller(const std::string filename) : Cuboid(filename){ angleXY = 0; } //konstruktor parametryczny 
     void draw(std::string filename) const;
     void Anim_Rotation(double angle, double frames,const std::string filename);
-    void Anim_Move(Vector3D translation, double frames,const std::string filename);
+    void Anim_Move(Vector3D translation,double velocity, double frames,const std::string filename);
     void rotateXY(const double& change) //powoduje ,ze kat obrotu jest suma wszystkich katow obrotu srub wokol osi xy, eiminujac bledy powielania
     {
         angleXY = angleXY + change;
