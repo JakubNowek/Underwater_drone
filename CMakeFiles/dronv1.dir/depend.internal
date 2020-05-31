@@ -53,6 +53,7 @@ CMakeFiles/dronv1.dir/src/gnuplot_link.cpp.o
 CMakeFiles/dronv1.dir/src/main.cpp.o
  /home/jakub/zad-5/src/main.cpp
  inc/Bottom.hh
+ inc/Obstacle.hh
  inc/Propeller.hh
  inc/RotationMatrix.hh
  inc/SMacierz.hh

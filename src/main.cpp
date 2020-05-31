@@ -10,6 +10,7 @@
 #include "Water.hh"
 #include "Propeller.hh"
 #include "RotationMatrix.hh"
+#include "Obstacle.hh"
 
 #include <chrono> //te dwie biblioteki sa od opznienia w animacji
 #include <thread> 
@@ -25,12 +26,22 @@ const string kWaterFile("solid/water.dat");
 const string kPrismFile("solid/granx.dat");
 const string kLPropellerFile("solid/Lpropeller.dat");
 const string kRPropellerFile("solid/Rpropeller.dat");
+//przeszkody
+const string kObs1File("solid/obstacles/rod.dat");
+const string kObs2File("solid/obstacles/rectangle.dat");
+const string kObs3File("solid/obstacles/cube.dat");
+
 int main()
 {
     Cuboid cuboid(kModelFile);  
     Propeller lpropeller(kPrismFile), rpropeller(kPrismFile);////na razie jeden aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     Bottom bottom(kBottomFile);
     Water water(kWaterFile);
+    //lista shared pointerow
+    shared_ptr<Surface> ptr1 = make_shared<Obstacle>(kObs1File);
+    shared_ptr<Surface> ptr2 = make_shared<Obstacle>(kObs2File);
+    shared_ptr<Surface> ptr3 = make_shared<Obstacle>(kObs3File);
+
     Vector3D translation, test; //wektor translacji
     PzG::GnuplotLink link; // Ta zmienna jest potrzebna do wizualizacji
     double distance, movementAngle; //odleglosc i kat wznoszenia/opadania podane przez uzytkownika
@@ -43,16 +54,19 @@ int main()
     double change = 0; //kat podany przez uzytkownika
     constexpr int FramesInTranslation = 120;//liczba kltek w animacji przesuniecia
     constexpr int FramesInRotation = 120;//liczba klatek w animacji obrotu
-    link.Init();
-    link.AddFilename(kDroneFile.c_str(), PzG::LS_CONTINUOUS, 1);
+    link.Init();    
     link.AddFilename(kBottomFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.AddFilename(kWaterFile.c_str(), PzG::LS_CONTINUOUS, 1);
+    link.AddFilename(kObs1File.c_str(), PzG::LS_CONTINUOUS, 1);
+    link.AddFilename(kObs2File.c_str(), PzG::LS_CONTINUOUS, 1);
+    link.AddFilename(kObs3File.c_str(), PzG::LS_CONTINUOUS, 1);
+    link.AddFilename(kDroneFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.AddFilename(kLPropellerFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.AddFilename(kRPropellerFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.SetDrawingMode(PzG::DM_3D);
     // a tutaj sobie przesuwamy, zeby zaczac w sensownym miejscu (nie na dnie i nie przy powierzchni)
     RotationMatrix m(-45 +change,'z');
-     translation[0] = 50;
+    translation[0] = 50;
     translation[1] = 50;
     translation[2] = 0;   
     cuboid.translate(translation);
@@ -65,8 +79,8 @@ int main()
     test[1] = 50;
     test[2] = -261.34;
     rpropeller.translate(test);  
-lpropeller.SetDifference(15,0,0);
-rpropeller.SetDifference(15,0,0);
+    lpropeller.SetDifference(15,0,0);
+    rpropeller.SetDifference(15,0,0);
     /*test[0] = 0;
     test[1] = 0;
     test[2] = 0;
@@ -77,8 +91,11 @@ rpropeller.SetDifference(15,0,0);
     rpropeller.translate(test); */
     //tu sie zaczyna rysowanie
     bottom.draw(kBottomFile);
-    cuboid.draw(kDroneFile);
     water.draw(kWaterFile);
+    cuboid.draw(kDroneFile);
+    ptr1->draw(kObs1File);
+    ptr2->draw(kObs2File);
+    ptr3->draw(kObs3File);
     lpropeller.draw(kLPropellerFile);
     rpropeller.draw(kRPropellerFile);
     link.Draw(); 

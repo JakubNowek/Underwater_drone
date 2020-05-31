@@ -107,12 +107,18 @@ Propeller.hh
 /home/jakub/zad-5/src/Propeller.hh
 RotationMatrix.hh
 /home/jakub/zad-5/src/RotationMatrix.hh
+Obstacle.hh
+/home/jakub/zad-5/src/Obstacle.hh
 chrono
 -
 thread
 -
 
 inc/Bottom.hh
+Surface.hh
+inc/Surface.hh
+
+inc/Obstacle.hh
 Surface.hh
 inc/Surface.hh
 
