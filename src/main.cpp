@@ -46,7 +46,7 @@ int main()
     link.Init();
     link.AddFilename(kDroneFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.AddFilename(kBottomFile.c_str(), PzG::LS_CONTINUOUS, 1);
-    //link.AddFilename(kWaterFile.c_str(), PzG::LS_CONTINUOUS, 1);
+    link.AddFilename(kWaterFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.AddFilename(kLPropellerFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.AddFilename(kRPropellerFile.c_str(), PzG::LS_CONTINUOUS, 1);
     link.SetDrawingMode(PzG::DM_3D);
