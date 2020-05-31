@@ -150,6 +150,33 @@ src/Bottom.cpp.s:
 	$(MAKE) -f CMakeFiles/dronv1.dir/build.make CMakeFiles/dronv1.dir/src/Bottom.cpp.s
 .PHONY : src/Bottom.cpp.s
 
+src/Obstacle.o: src/Obstacle.cpp.o
+
+.PHONY : src/Obstacle.o
+
+# target to build an object file
+src/Obstacle.cpp.o:
+	$(MAKE) -f CMakeFiles/dronv1.dir/build.make CMakeFiles/dronv1.dir/src/Obstacle.cpp.o
+.PHONY : src/Obstacle.cpp.o
+
+src/Obstacle.i: src/Obstacle.cpp.i
+
+.PHONY : src/Obstacle.i
+
+# target to preprocess a source file
+src/Obstacle.cpp.i:
+	$(MAKE) -f CMakeFiles/dronv1.dir/build.make CMakeFiles/dronv1.dir/src/Obstacle.cpp.i
+.PHONY : src/Obstacle.cpp.i
+
+src/Obstacle.s: src/Obstacle.cpp.s
+
+.PHONY : src/Obstacle.s
+
+# target to generate assembly for a file
+src/Obstacle.cpp.s:
+	$(MAKE) -f CMakeFiles/dronv1.dir/build.make CMakeFiles/dronv1.dir/src/Obstacle.cpp.s
+.PHONY : src/Obstacle.cpp.s
+
 src/Propeller.o: src/Propeller.cpp.o
 
 .PHONY : src/Propeller.o
@@ -351,6 +378,9 @@ help:
 	@echo "... src/Bottom.o"
 	@echo "... src/Bottom.i"
 	@echo "... src/Bottom.s"
+	@echo "... src/Obstacle.o"
+	@echo "... src/Obstacle.i"
+	@echo "... src/Obstacle.s"
 	@echo "... src/Propeller.o"
 	@echo "... src/Propeller.i"
 	@echo "... src/Propeller.s"

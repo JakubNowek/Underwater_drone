@@ -81,21 +81,14 @@ int main()
     rpropeller.translate(test);  
     lpropeller.SetDifference(15,0,0);
     rpropeller.SetDifference(15,0,0);
-    /*test[0] = 0;
-    test[1] = 0;
-    test[2] = 0;
-    lpropeller.translate(test);
-    test[0] = 0;
-    test[1] = 0;
-    test[2] = 0;
-    rpropeller.translate(test); */
+
     //tu sie zaczyna rysowanie
     bottom.draw(kBottomFile);
     water.draw(kWaterFile);
     cuboid.draw(kDroneFile);
-    ptr1->draw(kObs1File);
+/*     ptr1->draw(kObs1File);
     ptr2->draw(kObs2File);
-    ptr3->draw(kObs3File);
+    ptr3->draw(kObs3File); */
     lpropeller.draw(kLPropellerFile);
     rpropeller.draw(kRPropellerFile);
     link.Draw(); 

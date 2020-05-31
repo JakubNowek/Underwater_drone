@@ -81,9 +81,33 @@ CMakeFiles/dronv1.dir/src/Bottom.cpp.o.provides: CMakeFiles/dronv1.dir/src/Botto
 CMakeFiles/dronv1.dir/src/Bottom.cpp.o.provides.build: CMakeFiles/dronv1.dir/src/Bottom.cpp.o
 
 
+CMakeFiles/dronv1.dir/src/Obstacle.cpp.o: CMakeFiles/dronv1.dir/flags.make
+CMakeFiles/dronv1.dir/src/Obstacle.cpp.o: src/Obstacle.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dronv1.dir/src/Obstacle.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dronv1.dir/src/Obstacle.cpp.o -c /home/jakub/zad-5/src/Obstacle.cpp
+
+CMakeFiles/dronv1.dir/src/Obstacle.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dronv1.dir/src/Obstacle.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jakub/zad-5/src/Obstacle.cpp > CMakeFiles/dronv1.dir/src/Obstacle.cpp.i
+
+CMakeFiles/dronv1.dir/src/Obstacle.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dronv1.dir/src/Obstacle.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jakub/zad-5/src/Obstacle.cpp -o CMakeFiles/dronv1.dir/src/Obstacle.cpp.s
+
+CMakeFiles/dronv1.dir/src/Obstacle.cpp.o.requires:
+
+.PHONY : CMakeFiles/dronv1.dir/src/Obstacle.cpp.o.requires
+
+CMakeFiles/dronv1.dir/src/Obstacle.cpp.o.provides: CMakeFiles/dronv1.dir/src/Obstacle.cpp.o.requires
+	$(MAKE) -f CMakeFiles/dronv1.dir/build.make CMakeFiles/dronv1.dir/src/Obstacle.cpp.o.provides.build
+.PHONY : CMakeFiles/dronv1.dir/src/Obstacle.cpp.o.provides
+
+CMakeFiles/dronv1.dir/src/Obstacle.cpp.o.provides.build: CMakeFiles/dronv1.dir/src/Obstacle.cpp.o
+
+
 CMakeFiles/dronv1.dir/src/Propeller.cpp.o: CMakeFiles/dronv1.dir/flags.make
 CMakeFiles/dronv1.dir/src/Propeller.cpp.o: src/Propeller.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dronv1.dir/src/Propeller.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/dronv1.dir/src/Propeller.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dronv1.dir/src/Propeller.cpp.o -c /home/jakub/zad-5/src/Propeller.cpp
 
 CMakeFiles/dronv1.dir/src/Propeller.cpp.i: cmake_force
@@ -107,7 +131,7 @@ CMakeFiles/dronv1.dir/src/Propeller.cpp.o.provides.build: CMakeFiles/dronv1.dir/
 
 CMakeFiles/dronv1.dir/src/RotationMatrix.cpp.o: CMakeFiles/dronv1.dir/flags.make
 CMakeFiles/dronv1.dir/src/RotationMatrix.cpp.o: src/RotationMatrix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/dronv1.dir/src/RotationMatrix.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/dronv1.dir/src/RotationMatrix.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dronv1.dir/src/RotationMatrix.cpp.o -c /home/jakub/zad-5/src/RotationMatrix.cpp
 
 CMakeFiles/dronv1.dir/src/RotationMatrix.cpp.i: cmake_force
@@ -131,7 +155,7 @@ CMakeFiles/dronv1.dir/src/RotationMatrix.cpp.o.provides.build: CMakeFiles/dronv1
 
 CMakeFiles/dronv1.dir/src/Surface.cpp.o: CMakeFiles/dronv1.dir/flags.make
 CMakeFiles/dronv1.dir/src/Surface.cpp.o: src/Surface.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/dronv1.dir/src/Surface.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/dronv1.dir/src/Surface.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dronv1.dir/src/Surface.cpp.o -c /home/jakub/zad-5/src/Surface.cpp
 
 CMakeFiles/dronv1.dir/src/Surface.cpp.i: cmake_force
@@ -155,7 +179,7 @@ CMakeFiles/dronv1.dir/src/Surface.cpp.o.provides.build: CMakeFiles/dronv1.dir/sr
 
 CMakeFiles/dronv1.dir/src/Water.cpp.o: CMakeFiles/dronv1.dir/flags.make
 CMakeFiles/dronv1.dir/src/Water.cpp.o: src/Water.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/dronv1.dir/src/Water.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/dronv1.dir/src/Water.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dronv1.dir/src/Water.cpp.o -c /home/jakub/zad-5/src/Water.cpp
 
 CMakeFiles/dronv1.dir/src/Water.cpp.i: cmake_force
@@ -179,7 +203,7 @@ CMakeFiles/dronv1.dir/src/Water.cpp.o.provides.build: CMakeFiles/dronv1.dir/src/
 
 CMakeFiles/dronv1.dir/src/cuboid.cpp.o: CMakeFiles/dronv1.dir/flags.make
 CMakeFiles/dronv1.dir/src/cuboid.cpp.o: src/cuboid.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/dronv1.dir/src/cuboid.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/dronv1.dir/src/cuboid.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dronv1.dir/src/cuboid.cpp.o -c /home/jakub/zad-5/src/cuboid.cpp
 
 CMakeFiles/dronv1.dir/src/cuboid.cpp.i: cmake_force
@@ -203,7 +227,7 @@ CMakeFiles/dronv1.dir/src/cuboid.cpp.o.provides.build: CMakeFiles/dronv1.dir/src
 
 CMakeFiles/dronv1.dir/src/gnuplot_link.cpp.o: CMakeFiles/dronv1.dir/flags.make
 CMakeFiles/dronv1.dir/src/gnuplot_link.cpp.o: src/gnuplot_link.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/dronv1.dir/src/gnuplot_link.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/dronv1.dir/src/gnuplot_link.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dronv1.dir/src/gnuplot_link.cpp.o -c /home/jakub/zad-5/src/gnuplot_link.cpp
 
 CMakeFiles/dronv1.dir/src/gnuplot_link.cpp.i: cmake_force
@@ -227,7 +251,7 @@ CMakeFiles/dronv1.dir/src/gnuplot_link.cpp.o.provides.build: CMakeFiles/dronv1.d
 
 CMakeFiles/dronv1.dir/src/main.cpp.o: CMakeFiles/dronv1.dir/flags.make
 CMakeFiles/dronv1.dir/src/main.cpp.o: src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/dronv1.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/dronv1.dir/src/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dronv1.dir/src/main.cpp.o -c /home/jakub/zad-5/src/main.cpp
 
 CMakeFiles/dronv1.dir/src/main.cpp.i: cmake_force
@@ -252,6 +276,7 @@ CMakeFiles/dronv1.dir/src/main.cpp.o.provides.build: CMakeFiles/dronv1.dir/src/m
 # Object files for target dronv1
 dronv1_OBJECTS = \
 "CMakeFiles/dronv1.dir/src/Bottom.cpp.o" \
+"CMakeFiles/dronv1.dir/src/Obstacle.cpp.o" \
 "CMakeFiles/dronv1.dir/src/Propeller.cpp.o" \
 "CMakeFiles/dronv1.dir/src/RotationMatrix.cpp.o" \
 "CMakeFiles/dronv1.dir/src/Surface.cpp.o" \
@@ -264,6 +289,7 @@ dronv1_OBJECTS = \
 dronv1_EXTERNAL_OBJECTS =
 
 dronv1: CMakeFiles/dronv1.dir/src/Bottom.cpp.o
+dronv1: CMakeFiles/dronv1.dir/src/Obstacle.cpp.o
 dronv1: CMakeFiles/dronv1.dir/src/Propeller.cpp.o
 dronv1: CMakeFiles/dronv1.dir/src/RotationMatrix.cpp.o
 dronv1: CMakeFiles/dronv1.dir/src/Surface.cpp.o
@@ -273,7 +299,7 @@ dronv1: CMakeFiles/dronv1.dir/src/gnuplot_link.cpp.o
 dronv1: CMakeFiles/dronv1.dir/src/main.cpp.o
 dronv1: CMakeFiles/dronv1.dir/build.make
 dronv1: CMakeFiles/dronv1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable dronv1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jakub/zad-5/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable dronv1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dronv1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -282,6 +308,7 @@ CMakeFiles/dronv1.dir/build: dronv1
 .PHONY : CMakeFiles/dronv1.dir/build
 
 CMakeFiles/dronv1.dir/requires: CMakeFiles/dronv1.dir/src/Bottom.cpp.o.requires
+CMakeFiles/dronv1.dir/requires: CMakeFiles/dronv1.dir/src/Obstacle.cpp.o.requires
 CMakeFiles/dronv1.dir/requires: CMakeFiles/dronv1.dir/src/Propeller.cpp.o.requires
 CMakeFiles/dronv1.dir/requires: CMakeFiles/dronv1.dir/src/RotationMatrix.cpp.o.requires
 CMakeFiles/dronv1.dir/requires: CMakeFiles/dronv1.dir/src/Surface.cpp.o.requires

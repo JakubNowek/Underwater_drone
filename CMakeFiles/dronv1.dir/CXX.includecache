@@ -18,6 +18,16 @@ RotationMatrix.hh
 cmath
 -
 
+/home/jakub/zad-5/src/Obstacle.cpp
+Obstacle.hh
+/home/jakub/zad-5/src/Obstacle.hh
+fstream
+-
+iostream
+-
+cmath
+-
+
 /home/jakub/zad-5/src/Propeller.cpp
 Propeller.hh
 /home/jakub/zad-5/src/Propeller.hh

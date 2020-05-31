@@ -9,6 +9,14 @@ CMakeFiles/dronv1.dir/src/Bottom.cpp.o: inc/SWektor.hh
 CMakeFiles/dronv1.dir/src/Bottom.cpp.o: inc/Surface.hh
 CMakeFiles/dronv1.dir/src/Bottom.cpp.o: inc/rozmiar.hh
 
+CMakeFiles/dronv1.dir/src/Obstacle.cpp.o: src/Obstacle.cpp
+CMakeFiles/dronv1.dir/src/Obstacle.cpp.o: inc/Obstacle.hh
+CMakeFiles/dronv1.dir/src/Obstacle.cpp.o: inc/RotationMatrix.hh
+CMakeFiles/dronv1.dir/src/Obstacle.cpp.o: inc/SMacierz.hh
+CMakeFiles/dronv1.dir/src/Obstacle.cpp.o: inc/SWektor.hh
+CMakeFiles/dronv1.dir/src/Obstacle.cpp.o: inc/Surface.hh
+CMakeFiles/dronv1.dir/src/Obstacle.cpp.o: inc/rozmiar.hh
+
 CMakeFiles/dronv1.dir/src/Propeller.cpp.o: src/Propeller.cpp
 CMakeFiles/dronv1.dir/src/Propeller.cpp.o: inc/Propeller.hh
 CMakeFiles/dronv1.dir/src/Propeller.cpp.o: inc/RotationMatrix.hh

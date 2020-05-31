@@ -33,7 +33,7 @@ void Water::draw(std::string filename) const
     outputFile.open(filename);
     if(!outputFile.is_open())
     {
-        cerr << "Unable to open drone file!" << endl;
+        cerr << "Unable to open water file!" << endl;
         return;
     }
     int wave = 10;                                                          // wysokosc fali

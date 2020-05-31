@@ -9,6 +9,14 @@ CMakeFiles/dronv1.dir/src/Bottom.cpp.o
  inc/SWektor.hh
  inc/Surface.hh
  inc/rozmiar.hh
+CMakeFiles/dronv1.dir/src/Obstacle.cpp.o
+ /home/jakub/zad-5/src/Obstacle.cpp
+ inc/Obstacle.hh
+ inc/RotationMatrix.hh
+ inc/SMacierz.hh
+ inc/SWektor.hh
+ inc/Surface.hh
+ inc/rozmiar.hh
 CMakeFiles/dronv1.dir/src/Propeller.cpp.o
  /home/jakub/zad-5/src/Propeller.cpp
  inc/Propeller.hh
