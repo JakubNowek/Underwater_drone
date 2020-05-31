@@ -40,5 +40,6 @@
         "memory": "cpp",
         "ratio": "cpp",
         "thread": "cpp"
-    }
+    },
+    "cmake.configureOnOpen": false
 }

@@ -9,7 +9,6 @@ using namespace std;
 
 void Propeller::draw(std::string filename) const
 {
-
     ofstream outputFile;
     outputFile.open(filename);
     if(!outputFile.is_open())
@@ -18,12 +17,12 @@ void Propeller::draw(std::string filename) const
         return;
     }
 
-    RotationMatrix Rotz(angle,'z'), Rotx(angleXY,'x'), Roty(angleXY,'y') ;
+    RotationMatrix Rotz(-angle,'z'), Rotx(angleXY,'x'), Roty(angleXY,'y') ;
     //SMacierz<double,3> ROT;
     //ROT = Rotz*Rotx*Roty;
     for(unsigned i = 0; i < points.size(); ++i)
     {
-        outputFile << Rotx * points[i]  + translation   << endl;
+        outputFile << Rotz * Rotx /* * Roty */ * (points[i] + difference) + translation - difference   << endl;
         if(i % 4 == 3) // triggers after every 4 points
         {
             outputFile << "#\n\n";

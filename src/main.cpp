@@ -65,6 +65,8 @@ int main()
     test[1] = 50;
     test[2] = -261.34;
     rpropeller.translate(test);  
+lpropeller.SetDifference(15,0,0);
+rpropeller.SetDifference(15,0,0);
     /*test[0] = 0;
     test[1] = 0;
     test[2] = 0;
