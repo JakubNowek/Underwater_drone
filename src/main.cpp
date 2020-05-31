@@ -52,26 +52,26 @@ int main()
     link.SetDrawingMode(PzG::DM_3D);
     // a tutaj sobie przesuwamy, zeby zaczac w sensownym miejscu (nie na dnie i nie przy powierzchni)
     RotationMatrix m(-45 +change,'z');
-    translation[0] = 50;
+     translation[0] = 50;
     translation[1] = 50;
     translation[2] = 0;   
     cuboid.translate(translation);
 //rozmieszczanie srob tak ma byc  
-    test[0] = 35;
+    test[0] = 50;
     test[1] = 50;
     test[2] = -284.34;
     lpropeller.translate(test);
-    test[0] = 35;
+    test[0] = 50;
     test[1] = 50;
     test[2] = -261.34;
-    rpropeller.translate(test); 
-    /* test[0] = 0;
+    rpropeller.translate(test);  
+    /*test[0] = 0;
     test[1] = 0;
     test[2] = 0;
     lpropeller.translate(test);
     test[0] = 0;
     test[1] = 0;
-    test[2] = 00;
+    test[2] = 0;
     rpropeller.translate(test); */
     //tu sie zaczyna rysowanie
     bottom.draw(kBottomFile);
@@ -123,7 +123,7 @@ int main()
                       ///////////////////////////////////////////////test
                       lpropeller.GetAngleXY() = -45+cuboid.Angle();
                       rpropeller.GetAngleXY() = -45+cuboid.Angle();
-                      ///////////////////////////////////////////////koniec testu
+                      ///////////////////////////////////////////////koniec test
                       translation = m*translation;   
                       for (int i = 0;i<FramesInTranslation; i++)
                       {
