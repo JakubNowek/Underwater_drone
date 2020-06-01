@@ -81,8 +81,8 @@ int main()
     test[1] = 50;
     test[2] = -261.34;
     rpropeller.translate(test);  
-    lpropeller.SetDifference(15,0,0);
-    rpropeller.SetDifference(15,0,0);
+    lpropeller.SetDifference(0,0,0);
+    rpropeller.SetDifference(0,0,0);
 
 //tu sie zaczyna rysowanie
 /*  ptr1->draw(kObs1File);
@@ -114,11 +114,13 @@ int main()
             case '1': cout << "Podaj kat:  ";
                       cin >>change;
                       cout << endl;
-                      cout <<"Aktualny kat obrotu    "<<lpropeller.AngleXY()<<endl;
+                      //cout <<"Aktualny kat obrotu    "<<lpropeller.AngleXY()<<endl;
                       //obracanie drona w animacji//
                       for (int i = 0;i<FramesInRotation; i++)
                       {
                         cuboid.Anim_Rotation(change,FramesInRotation,kDroneFile);
+                        //lpropeller.GetAngleXY() = -45+cuboid.Angle();
+                      //rpropeller.GetAngleXY() = -45+cuboid.Angle();
                         lpropeller.Anim_Rotation(change,FramesInRotation,kLPropellerFile);
                         rpropeller.Anim_Rotation(change,FramesInRotation,kRPropellerFile);
                         link.Draw();
@@ -137,8 +139,8 @@ int main()
                       //translacja w animacji//
                       m = m.AddAngle(-45+cuboid.Angle(),'z');
                       ///////////////////////////////////////////////test
-                      lpropeller.GetAngleXY() = -45+cuboid.Angle();
-                      rpropeller.GetAngleXY() = -45+cuboid.Angle();
+                      //lpropeller.GetAngleXY() = -45+cuboid.Angle();
+                      //rpropeller.GetAngleXY() = -45+cuboid.Angle();
                       ///////////////////////////////////////////////koniec test
                       translation = m*translation;   
                       for (int i = 0;i<FramesInTranslation; i++)
