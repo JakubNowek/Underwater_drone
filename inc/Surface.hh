@@ -22,6 +22,7 @@ protected:
     double angle; //kąt o który obracamy
 public:
     Surface(const std::string filename);
+    virtual ~Surface() {}
     void draw(std::string filename) const;
     void translate(const Vector3D& change);  
     void rotate(const double& change) //powoduje ,ze kat obrotu jest suma wszystkich katow obrotu, eiminujac bledy powielania

@@ -83,8 +83,8 @@ int main()
     test[1] = 50;
     test[2] = -261.34;
     rpropeller.translate(test);  
-    lpropeller.SetDifference(0,0,0);
-    rpropeller.SetDifference(0,0,0);
+    lpropeller.SetDifference(15,0,0);
+    rpropeller.SetDifference(15,0,0);
 
 //tu sie zaczyna rysowanie
 /*  ptr1->draw(kObs1File);
