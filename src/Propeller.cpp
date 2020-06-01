@@ -19,10 +19,10 @@ void Propeller::draw(std::string filename) const
         return;
     }
 
-    RotationMatrix Rotz(-angle,'z'), Rotx(angleXY,'x'), Roty(-angleXY,'y') ;
+    RotationMatrix Rotz(-angle,'z'), Rotx(angleXY,'x'), Roty(angleXY,'y') ;
     for(unsigned i = 0; i < points.size(); ++i)
     {
-        outputFile << Rotz * Roty *  (points[i] + difference) + translation  - difference     << endl;
+        outputFile << Rotz *  Roty *  (points[i] + difference) + translation  - difference     << endl;
         if(i % 4 == 3) // uruchamia sie co 4 punkty
         {
             outputFile << "#\n\n";
