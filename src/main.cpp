@@ -41,10 +41,10 @@ int main()
     shared_ptr<Surface> ptr1 = make_shared<Obstacle>(kObs1File);
     shared_ptr<Surface> ptr2 = make_shared<Obstacle>(kObs2File);
     shared_ptr<Surface> ptr3 = make_shared<Obstacle>(kObs3File);
-    /* vector<shared_ptr<Surface>> obstacle_list;
+    vector<shared_ptr<Surface>> obstacle_list;
     obstacle_list.push_back(ptr1);
     obstacle_list.push_back(ptr2);
-    obstacle_list.push_back(ptr3); */
+    obstacle_list.push_back(ptr3);
     Vector3D translation, test; //wektor translacji
     PzG::GnuplotLink link; // Ta zmienna jest potrzebna do wizualizacji
     double distance, movementAngle; //odleglosc i kat wznoszenia/opadania podane przez uzytkownika
