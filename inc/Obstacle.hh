@@ -1,13 +1,14 @@
 #pragma once
 #include "Surface.hh"
 
+/**
+ * @brief klasa modeluje pojecie przeszkody
+ * 
+ */
 class Obstacle : public Surface
 {   
-    double collision_center;
-    
     public:
     Obstacle(const std::string filename) : Surface(filename){ }  //konstruktor parametryczny
-    //virtual void Collision();
-    //virtual ~Obstacle() {};
+    virtual void CollisionName() const = 0;
 
 };

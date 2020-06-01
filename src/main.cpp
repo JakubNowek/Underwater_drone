@@ -12,6 +12,9 @@
 #include "RotationMatrix.hh"
 #include "Obstacle.hh"
 #include "Drone.hh"
+#include "Wall.hh"
+#include "Rod.hh"
+#include "Cube.hh"
 
 #include <chrono> //te dwie biblioteki sa od opznienia w animacji
 #include <thread> 
@@ -42,7 +45,10 @@ int main()
     shared_ptr<Surface> ptr1 = make_shared<Obstacle>(kObs1File);
     shared_ptr<Surface> ptr2 = make_shared<Obstacle>(kObs2File);
     shared_ptr<Surface> ptr3 = make_shared<Obstacle>(kObs3File);
-
+    vector<shared_ptr<Surface>> obstacle_list;
+    obstacle_list.push_back(ptr1);
+    obstacle_list.push_back(ptr2);
+    obstacle_list.push_back(ptr3);
     Vector3D translation, test; //wektor translacji
     PzG::GnuplotLink link; // Ta zmienna jest potrzebna do wizualizacji
     double distance, movementAngle; //odleglosc i kat wznoszenia/opadania podane przez uzytkownika
@@ -138,10 +144,7 @@ int main()
                       translation[2] = distance*tan(movementAngle*M_PI/180); 
                       //translacja w animacji//
                       m = m.AddAngle(-45+cuboid.Angle(),'z');
-                      ///////////////////////////////////////////////test
-                      //lpropeller.GetAngleXY() = -45+cuboid.Angle();
-                      //rpropeller.GetAngleXY() = -45+cuboid.Angle();
-                      ///////////////////////////////////////////////koniec test
+
                       translation = m*translation;   
                       for (int i = 0;i<FramesInTranslation; i++)
                       {

@@ -17,7 +17,7 @@ Surface::Surface(const string filename): angle{0}
     inputFile.open(filename);
     if(!inputFile.is_open())
     {
-        cerr << "Unable to load model Surface file!" 
+        cerr << "Unable to load Surface file!" 
              << endl;
         return;
     }

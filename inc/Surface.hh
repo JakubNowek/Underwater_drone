@@ -20,7 +20,6 @@ protected:
     std::vector<Vector3D> points;
     Vector3D translation; //aktualne przesuniecie obiektu
     double angle; //kąt o który obracamy
-
 public:
     Surface(const std::string filename);
     void draw(std::string filename) const;
