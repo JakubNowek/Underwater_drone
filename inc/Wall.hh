@@ -1,6 +1,10 @@
 #pragma once
 #include "Obstacle.hh"
 
+/**
+ * @brief klasa dziedziczaca z klasy przeszkody, modeujaca pojecie sciany
+ * 
+*/
 class Wall : public Obstacle
 {
     public:

@@ -1,6 +1,11 @@
 #pragma once
 #include "Obstacle.hh"
 
+/**
+ * @brief klasa dziedziczaca z klasy przeszkody, modeujaca pojecie prostopadlosciennej przeszkody
+ * 
+*/
+
 class Cube : public Obstacle
 {
     public:

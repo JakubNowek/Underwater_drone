@@ -2,6 +2,11 @@
 
 #include "cuboid.hh"
 
+
+/**
+ * @brief klasa dziedziczasa z klasy kuboid , modelujaca pojecie rotora drona
+ * 
+ */
 class Propeller : public Cuboid 
 {
     double angleXY;

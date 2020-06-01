@@ -3,7 +3,10 @@
 
 #include "SMacierz.hh"
 
-
+/**
+ * @brief funkcja modelujaca pojecie macierzy rotacji bedaca specjalnym przypadkiem klasy SMacierz
+ *  Zawiera konstruktor oraz funkcje zmiany kata
+*/
 class RotationMatrix : public SMacierz<double,3>
 {
     public:
@@ -11,8 +14,6 @@ class RotationMatrix : public SMacierz<double,3>
     RotationMatrix(double angle, char os);
     RotationMatrix AddAngle(double angle, char os);
 };
- 
-//zrobie jak bedzie na czas, na razie po neandertalsku mam w cuboidzie
 
 
 #endif

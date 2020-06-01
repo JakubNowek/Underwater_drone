@@ -5,8 +5,10 @@
 #include <cmath>
 using namespace std;
 
-
-
+/**
+ *  @brief funkcja analogiczna do funkcji draw w klasie Surface
+ * 
+ */
 void Propeller::draw(std::string filename) const
 {
     ofstream outputFile;
@@ -18,18 +20,19 @@ void Propeller::draw(std::string filename) const
     }
 
     RotationMatrix Rotz(-angle,'z'), Rotx(angleXY,'x'), Roty(angleXY,'y') ;
-    //SMacierz<double,3> ROT;
-    //ROT = Rotz*Rotx*Roty;
     for(unsigned i = 0; i < points.size(); ++i)
     {
-        outputFile << Rotz * Rotx /* * Roty */ * (points[i] + difference) + translation - difference   << endl;
-        if(i % 4 == 3) // triggers after every 4 points
+        outputFile << Rotz * Rotx * (points[i] + difference) + translation - difference   << endl;
+        if(i % 4 == 3) // uruchamia sie co 4 punkty
         {
             outputFile << "#\n\n";
         }
     }
 }
-
+/**
+ * @brief funkcja analogiczna do funkcji Animated_Rotation dla klasy cuboid
+ * 
+ */
 void Propeller::Anim_Rotation( double angle, double frames, const std::string filename)
 {
       auto temp1 = angle/frames;
@@ -40,6 +43,10 @@ void Propeller::Anim_Rotation( double angle, double frames, const std::string fi
       this->draw(filename);
 }
 
+/**
+ * @brief funkcja analogiczna do funkcji Animated_Move dla klasy cuboid
+ * 
+ */
 void Propeller::Anim_Move(Vector3D translation,double velocity, double frames,const std::string filename)
 {     
 
