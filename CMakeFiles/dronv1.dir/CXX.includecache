@@ -121,6 +121,12 @@ Obstacle.hh
 /home/jakub/zad-5/src/Obstacle.hh
 Drone.hh
 /home/jakub/zad-5/src/Drone.hh
+Wall.hh
+/home/jakub/zad-5/src/Wall.hh
+Rod.hh
+/home/jakub/zad-5/src/Rod.hh
+Cube.hh
+/home/jakub/zad-5/src/Cube.hh
 chrono
 -
 thread
@@ -129,6 +135,10 @@ thread
 inc/Bottom.hh
 Surface.hh
 inc/Surface.hh
+
+inc/Cube.hh
+Obstacle.hh
+inc/Obstacle.hh
 
 inc/Drone.hh
 cuboid.hh
@@ -143,6 +153,10 @@ inc/Surface.hh
 inc/Propeller.hh
 cuboid.hh
 inc/cuboid.hh
+
+inc/Rod.hh
+Obstacle.hh
+inc/Obstacle.hh
 
 inc/RotationMatrix.hh
 SMacierz.hh
@@ -177,6 +191,10 @@ SMacierz.hh
 inc/SMacierz.hh
 RotationMatrix.hh
 inc/RotationMatrix.hh
+
+inc/Wall.hh
+Obstacle.hh
+inc/Obstacle.hh
 
 inc/Water.hh
 Surface.hh

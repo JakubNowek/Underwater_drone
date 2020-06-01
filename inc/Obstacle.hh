@@ -8,7 +8,7 @@
 class Obstacle : public Surface
 {   
     public:
-    Obstacle(const std::string filename) : Surface(filename){ }  //konstruktor parametryczny
-    virtual void CollisionName() const = 0;
-
+    Obstacle(const std::string filename) : Surface(filename) { }  //konstruktor parametryczny
+    virtual ~Obstacle() {}
+    virtual void CollisionName() const {};
 };
