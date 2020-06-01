@@ -1,0 +1,5 @@
+<map id="Wall" name="Wall">
+<area shape="rect" id="node2" href="$class_obstacle.html" title="klasa modeluje pojecie przeszkody " alt="" coords="43,171,118,197"/>
+<area shape="rect" id="node3" href="$class_surface.html" title="klasa bazowa modelujaca pojecie obiektu 3D, zawiera: " alt="" coords="47,95,114,121"/>
+<area shape="rect" id="node4" href="$class_s_wektor.html" title="SWektor\&lt; double, 3 \&gt;" alt="" coords="5,5,156,32"/>
+</map>

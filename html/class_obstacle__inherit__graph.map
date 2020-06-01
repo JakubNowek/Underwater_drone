@@ -1,0 +1,6 @@
+<map id="Obstacle" name="Obstacle">
+<area shape="rect" id="node3" href="$class_cube.html" title="klasa dziedziczaca z klasy przeszkody, modeujaca pojecie prostopadlosciennej przeszkody ..." alt="" coords="5,155,59,181"/>
+<area shape="rect" id="node4" href="$class_rod.html" title="klasa dziedziczaca z klasy przeszkody, modeujaca pojecie preta " alt="" coords="83,155,130,181"/>
+<area shape="rect" id="node5" href="$class_wall.html" title="klasa dziedziczaca z klasy przeszkody, modeujaca pojecie sciany " alt="" coords="155,155,203,181"/>
+<area shape="rect" id="node2" href="$class_surface.html" title="klasa bazowa modelujaca pojecie obiektu 3D, zawiera: " alt="" coords="73,5,140,32"/>
+</map>

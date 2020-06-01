@@ -1,0 +1,10 @@
+<map id="Surface" name="Surface">
+<area shape="rect" id="node2" href="$class_bottom.html" title="klasa dziedziczaca z klasy surface odpowiada za dno zbiornika z dronem " alt="" coords="5,80,69,107"/>
+<area shape="rect" id="node3" href="$class_cuboid.html" title="klasa dziedziczaca z klasy surface, modelujaca prostopadloscian " alt="" coords="94,80,157,107"/>
+<area shape="rect" id="node5" href="$class_obstacle.html" title="klasa modeluje pojecie przeszkody " alt="" coords="181,80,256,107"/>
+<area shape="rect" id="node9" href="$class_water.html" title="klasa dziedzizaca z klasy bazowej, modelujaca pojecie powierzchni wody " alt="" coords="281,80,338,107"/>
+<area shape="rect" id="node4" href="$class_propeller.html" title="klasa dziedziczasa z klasy kuboid , modelujaca pojecie rotora drona " alt="" coords="54,155,127,181"/>
+<area shape="rect" id="node6" href="$class_cube.html" title="klasa dziedziczaca z klasy przeszkody, modeujaca pojecie prostopadlosciennej przeszkody ..." alt="" coords="152,155,205,181"/>
+<area shape="rect" id="node7" href="$class_rod.html" title="klasa dziedziczaca z klasy przeszkody, modeujaca pojecie preta " alt="" coords="230,155,277,181"/>
+<area shape="rect" id="node8" href="$class_wall.html" title="klasa dziedziczaca z klasy przeszkody, modeujaca pojecie sciany " alt="" coords="301,155,349,181"/>
+</map>

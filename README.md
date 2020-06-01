@@ -23,6 +23,8 @@ Uwagi:
 1. Nie wiem jak sprawic , zeby komendy skierowane do gnuplota nie wciskaly sie miedzy moj tekst a wczytywanie.
 Ne powoduje to bledow, ale wyglada zle :(
 2. Zderzenie z woda i dnem nadal nie dziala, mimo iz dolozylem  wszelkich staran, nie mam pojecia co jeszcze moze psuc wykrywanie kolizji
- 
+
+
+3. DOKUMENTACJA - plik ze strona html znajduje sie w folderze html pod nazwa intex.html
 
 

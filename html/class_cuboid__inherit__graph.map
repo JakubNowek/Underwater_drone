@@ -1,0 +1,4 @@
+<map id="Cuboid" name="Cuboid">
+<area shape="rect" id="node3" href="$class_propeller.html" title="klasa dziedziczasa z klasy kuboid , modelujaca pojecie rotora drona " alt="" coords="5,155,79,181"/>
+<area shape="rect" id="node2" href="$class_surface.html" title="klasa bazowa modelujaca pojecie obiektu 3D, zawiera: " alt="" coords="9,5,75,32"/>
+</map>

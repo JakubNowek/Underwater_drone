@@ -1,0 +1,4 @@
+<map id="Propeller" name="Propeller">
+<area shape="rect" id="node2" href="$class_cuboid.html" title="klasa dziedziczaca z klasy surface, modelujaca prostopadloscian " alt="" coords="11,80,73,107"/>
+<area shape="rect" id="node3" href="$class_surface.html" title="klasa bazowa modelujaca pojecie obiektu 3D, zawiera: " alt="" coords="9,5,75,32"/>
+</map>
