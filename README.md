@@ -1,10 +1,6 @@
-# zad 5
+# Dron podwodny
 
+## Opis
+Program został stworzony w oparciu o program Gnuplot. Służy do sterowania wygenerowanym modelem drona podwodnego w przestrzeni trójwymiarowej.
 
-
-MODYFIKACJA DO ZAD 5, wlasciwy program z normalnymi srubami zostal dodany na gita nieco wczesniej
-
-
-sruby przy poruszaniu obracaja sie w dobrym kierunku, lecz przy obrocie pozostaja przy boku drona
-(podczas pouszania po obrocie nadal jednak obracaja se w dobrym kierunku)
-
+Dokumentacja programu została wygenerowana przy pomocy narzędzia Doxygen.
